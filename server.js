@@ -4,11 +4,8 @@ const port = 8080;
 
 app.set('view engine', 'ejs');
 
-app.use(express.static('frontend'))
-
-
 app.get('/', (req,res) => {
-    res.render('home')
+    res.render('home', { obj: {message: 'good morning cookies', number: 5, sport: 'basketball'} })
 })
 
 
