@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8080;
+const pool = require('./db/db')
 
 app.set('view engine', 'ejs');
 
