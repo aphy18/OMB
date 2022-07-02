@@ -4,7 +4,7 @@ const port = 8080;
 const pool = require('./db/db'); // to connect db to server
 const bodyParser = require('body-parser'); // to send request body to server
 const cookieSession = require('cookie-session'); // to save current logged in user
-const cookieParser = require('cookie-parser')
+
 
 // app.use is middleware, runs inbetween the request and response operations
 //every time you run the req/res code, the middleware will be ran as well
@@ -16,7 +16,8 @@ app.use(cookieSession({
     name: 'session',
     keys: ['abcdefghijklmnopqrstuvwxyz123456789']
 }));
-app.use(cookieParser());
+
+
 // this means using the /styles route in reference from the root directory, then specifying the folder name
 app.use('/styles', express.static('styles'));
 
@@ -25,10 +26,9 @@ app.set('view engine', 'ejs');
 // res.json() sends a json response to the front end
 
 app.get('/', async (req,res) => {
-    try {
-        let user = req.cookies.user
-        console.log('cookies -->', req.cookies.user)
-        res.render('home', { user } )
+    try {   
+        let user = req.session.user;
+        res.render('home', { user })
         // console.log('person -->', person)
         // console.log('person rows 0 -->', person.rows[0]);
     } catch (err) {
@@ -53,7 +53,7 @@ app.post('/login', async (req,res) => {
         
         for (let person of checkLogin.rows) {
             if (person.card_number === parseInt(card) && person.user_password === password) {
-                res.cookie('user', person, { httpOnly: true})
+                req.session.user = person;
             } else {
                 console.log('invalid card number or password')
             }
