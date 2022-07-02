@@ -2,11 +2,14 @@ const express = require('express');
 const app = express();
 const port = 8080;
 const pool = require('./db/db')
+const bodyParser = require('body-parser')
 
 // app.use is middleware, runs inbetween the request and response operations
 //every time you run the req/res code, the middleware will be ran as well
+// bodyParser parses data sent by HTTP requests from the client side
 
 app.use(express.json()) // req.body
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // this means using the /styles route in reference from the root directory, then specifying the folder name
 app.use('/styles', express.static('styles'));
@@ -39,7 +42,7 @@ app.get('/login', async (req,res) => {
 app.post('/login', async (req,res) => {
     try {
         console.log('req.body -->', req.body)
-        res.redirect('/')
+        // res.redirect('/')
     } catch (err) {
         console.log(err.message)
     }
