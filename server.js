@@ -10,9 +10,10 @@ app.set('view engine', 'ejs');
 app.get('/', async (req,res) => {
     try {
         const person = await pool.query('SELECT * FROM person WHERE id = 2')
-        // res.json(person.rows[0])
-        console.log(person.rows[0])
-        res.render('home', { obj: {message: 'good morning cookies', number: 5, sport: 'basketball'} })
+        let personObj = person.rows[0];
+        res.render('home', { personObj } )
+        console.log('person -->', person)
+        console.log('person rows 0 -->', person.rows[0]);
     } catch (err) {
         console.log(err.message)
     }
@@ -23,7 +24,12 @@ app.get('/deadend', async (req,res) => {
 })
 
 app.get('/test', async (req,res) => {
-    res.render('test', {obj: { names: ['Aphy','Jenny','Ben']}})
+    let student = {
+        name: 'Aphy',
+        age: 20,
+        grades: ['A','B','c']
+    }
+    res.render('test', { student })
 })
 
 

@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <p><%= obj.names[0] %></p>
-    <p><%= obj.names[1] %></p>
-    <p><%= obj.names[2] %></p>
+    <% for (let item in student) { %>
+        <p> <%= student[item] %> </p>
+    <% } %>
 
 
 
