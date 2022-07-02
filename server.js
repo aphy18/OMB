@@ -21,7 +21,7 @@ app.get('/', async (req,res) => {
         let personObj = person.rows[0];
         res.render('home', { personObj } )
         // console.log('person -->', person)
-        console.log('person rows 0 -->', person.rows[0]);
+        // console.log('person rows 0 -->', person.rows[0]);
     } catch (err) {
         console.log(err.message)
     }
@@ -31,6 +31,15 @@ app.get('/', async (req,res) => {
 app.get('/login', async (req,res) => {
     try {
         res.render('login')
+    } catch (err) {
+        console.log(err.message)
+    }
+})
+
+app.post('/login', async (req,res) => {
+    try {
+        console.log('req.body -->', req.body)
+        res.redirect('/')
     } catch (err) {
         console.log(err.message)
     }
