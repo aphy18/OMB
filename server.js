@@ -13,8 +13,6 @@ app.use('/styles', express.static('styles'));
 
 app.set('view engine', 'ejs');
 
-console.log(__dirname + '\styles')
-
 // res.json sends a json response to the front end
 
 app.get('/', async (req,res) => {
@@ -30,8 +28,13 @@ app.get('/', async (req,res) => {
 })
 
 
-
-
+app.get('/login', async (req,res) => {
+    try {
+        res.render('login')
+    } catch (err) {
+        console.log(err.message)
+    }
+})
 
 app.get('/deadend', async (req,res) => {
     res.status(400).send('nothing past here')
