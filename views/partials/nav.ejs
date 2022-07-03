@@ -7,7 +7,7 @@
         <li class="nav-item"></li>
         <li class="nav-item"></li>
     </ul> -->
-    <div class="nav-item-container">
+    <div class="nav-item-container" id="item-container">
         <span class="nav-item" id="expenses">Expenses</span>
         <span class="nav-item" id="jobs">Jobs</span>
         <span class="nav-item" id="options">Options</span>
@@ -16,21 +16,25 @@
 </header>
 
 <script>
-    let navItemContainer = document.querySelector('.nav-item-container')
+    let nav = document.getElementById('item-container')
     let expenses = document.getElementById('expenses')
-    let jobs = document.getElementById('jobs')
-    let options = document.getElementById('options')
-    let logout = document.getElementById('logout')
+    // let jobs = document.getElementById('jobs')
+    // let options = document.getElementById('options')
+    // let logout = document.getElementById('logout')
 
-    expenses.addEventListener('mouseover', () => {
-        let newElement = document.createElement('div');
-        newElement.classList.add('expense-dropdown');
-        newElement.innerHTML = 'Texttext'
+    // expenses.addEventListener('mouseover', () => {
+    //     let newElement = document.createElement('div');
+    //     newElement.classList.add('expense-dropdown');
+    //     newElement.innerHTML = 'Texttext'
 
-        console.log('drop down -->', newElement)
+    //     console.log('drop down -->', newElement)
 
-        document.body.append(newElement)
-    })
+    //     nav.prepend(newElement)
+    // })
+
+    // expenses.addEventListener('mouseoff', () => {
+    //     document.querySelector('nav-container').removeChild(newElement)
+    // })
 
 
 </script>

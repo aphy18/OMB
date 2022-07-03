@@ -1,6 +1,6 @@
 .nav-container {
     width: 100%;
-    height: 50px;
+    height: 100px;
     background-color: turquoise;
     display: flex;
     justify-content: flex-end;
@@ -8,18 +8,38 @@
 }
 
 .nav-item-container {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     width: 50%;
-    height: 50px;
+    height: auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     cursor: pointer;
 }
 
-.expense-dropdown {
+
+#expenses {
+    /* border: 2px solid black; */
+    display: flex;
+    width: 150px;
+    height: 20px;
+    flex-direction: column;
+}
+
+
+
+#expenses::after {
+    content: 'Links';
     background-color: white;
-    border: 2px solid grey;
-    width: 100px;
-    height: 130px;
+    border: 2px solid black;
+    height: 200px;
+    visibility: hidden;
+
+}
+
+#expenses:hover::after {
+    visibility: visible;
+    /* background-color: white;
+    border: 2px solid black;
+    height: 200px; */
 }
