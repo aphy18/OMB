@@ -33,6 +33,7 @@ app.get('/', async (req,res) => {
             res.status(400).send('You must log in to access the home page')
         } else {
             res.render('home', { user })
+            console.log('current user --->', user)
         }
         
     } catch (err) {
@@ -53,8 +54,9 @@ app.get('/login', async (req,res) => {
 app.post('/login', async (req,res) => {
     try {
         const { card, password } = req.body;
-        const checkLogin = await pool.query('SELECT * FROM person')
+        const checkLogin = await pool.query('SELECT * FROM person JOIN account ON person.id = account.user_id')
         
+        console.log('check login rows -->', checkLogin.rows)
         for (let person of checkLogin.rows) {
             if (person.card_number === parseInt(card) && person.user_password === password) {
                 req.session.user = person;
