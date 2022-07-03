@@ -21,6 +21,17 @@ body {
     border: 2px solid blue;
     width: 1000px;
     height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bank-account-section {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
 }
 
 .bank-card {

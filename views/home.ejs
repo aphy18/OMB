@@ -13,16 +13,34 @@
 
     <h1 class="home-header">Hello <%= user.first_name %></h1>
 
+    <p class="number">200</p>
+
+    <!-- <script>
+        let number = document.querySelector('.number');
+        let convertToNum = parseInt(number.innerHTML);
+        
+        setInterval(() => {
+            number.innerHTML = `${convertToNum += 1}`
+        },5)
+
+        console.log(convertToNum += 1)
+    
+    
+    </script> -->
+
     <div class="home-container">
         
      
         <div class="bank-account-container">
             <div class="bank-account-section">
                 <span>Chequing</span>
-                <span></span>
+                <span>$<%= user.chequing %>.00</span>
             </div>
-            <div class="bank-account-section"></div>
-            <div class="bank-account-section"></div>
+            <div class="bank-account-section">
+                <span>Savings</span>
+                <span>$<%= user.savings %>.00</span>
+            </div>
+            
         </div>
         <div class="bank-card">
 
