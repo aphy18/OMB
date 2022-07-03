@@ -8,12 +8,14 @@
     <link rel="stylesheet" type="text/css" href="../styles/home.css">
 </head>
 <body>
+
+    <%- include('partials/nav.ejs') %>
+
+    <h1 class="home-header">Hello <%= user.first_name %></h1>
+
     <div class="home-container">
         
-        <p><%= user.first_name %></p>
-
-
-
+     
         <div class="bank-account-container">
 
         </div>

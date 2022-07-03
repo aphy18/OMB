@@ -26,11 +26,15 @@ app.set('view engine', 'ejs');
 // res.json() sends a json response to the front end
 
 app.get('/', async (req,res) => {
-    try {   
+    try {
         let user = req.session.user;
-        res.render('home', { user })
-        // console.log('person -->', person)
-        // console.log('person rows 0 -->', person.rows[0]);
+        
+        if (!user) {
+            res.status(400).send('You must log in to access the home page')
+        } else {
+            res.render('home', { user })
+        }
+        
     } catch (err) {
         console.log(err.message)
     }
