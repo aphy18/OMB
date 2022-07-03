@@ -37,27 +37,33 @@
 
     <div class="home-container">
         
-     
-        <div class="bank-account-container">
-            <div class="bank-account-section" id="bank-account-title">
-                <h1>Bank Account</h1>
-            </div>
-            <div class="bank-account-section">
-                <span class="account-name">Chequing</span>
-                <span class="account-money">$<%= user.chequing %>.00</span>
-            </div>
-            <div class="bank-account-section">
-                <span class="account-name">Savings</span>
-                <span class="account-money">$<%= user.savings %>.00</span>
-            </div>
-            <div class="bank-account-section">
-                <span class="account-name">Total</span>
-                <span class="account-money">$<%= user.chequing + user.savings %>.00</span>
-            </div>
-            
+        <div class="money-on-hand">
+            <p>Money on Hand: <%= user.money_on_hand %></p>
         </div>
-        <div class="bank-card">
 
+        <div class="banking-info-container">
+            <div class="bank-account-container">
+                <div class="bank-account-section" id="bank-account-title">
+                    <h1>Bank Account</h1>
+                </div>
+                <div class="bank-account-section">
+                    <span class="account-name">Chequing</span>
+                    <span class="account-money">$<%= user.chequing %>.00</span>
+                </div>
+                <div class="bank-account-section">
+                    <span class="account-name">Savings</span>
+                    <span class="account-money">$<%= user.savings %>.00</span>
+                </div>
+                <div class="bank-account-section">
+                    <span class="account-name">Total</span>
+                    <span class="account-money">$<%= user.chequing + user.savings %>.00</span>
+                </div>
+                
+            </div>
+
+            <div class="bank-card">
+    
+            </div>
         </div>
     </div>
     
