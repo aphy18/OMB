@@ -16,7 +16,7 @@
         </div>
 
         <div class="dropdown-container">
-            <div class="dropdown-menu">1</div>
+            <div class="dropdown-menu" id="dropdown-menu-1">1</div>
             <div class="dropdown-menu">2</div>
             <div class="dropdown-menu">3</div>
             <div class="dropdown-menu">4</div>
@@ -27,5 +27,16 @@
 
 
 <script>
-    
+    let expenses = document.querySelector('#expenses');
+    let dropDown = document.querySelector('#dropdown-menu-1');
+
+    expenses.addEventListener('click', () => {
+        document.querySelector('#dropdown-menu-1').style.visibility = 'visible';
+        expenses.style.backgroundColor = 'rgb(229, 190, 190)'
+    })
+
+    dropDown.addEventListener('mouseleave', () => {
+        document.querySelector('#dropdown-menu-1').style.visibility = 'hidden';
+        expenses.style.backgroundColor = 'turquoise'
+    })
 </script>

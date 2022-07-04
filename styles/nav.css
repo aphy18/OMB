@@ -33,12 +33,13 @@
     /* border: 2px solid black; */
     font-size: 20px;
     margin-top: 2%;
-    width: 25%;
+    width: 18%;
     /* height: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 15px;
+    /* background-color: white; */
 }
 .dropdown-container {
     /* border: 2px solid blue; */
@@ -51,8 +52,10 @@
 
 
 .dropdown-menu {
-    width: 25%;
+    width: 18%;
     height: 180px;
-    border: 2px solid black;
-    background-color: grey;
+    /* border: 2px solid black; */
+    background-color: rgb(229, 190, 190);
+    visibility: hidden;
+    border-top: none;
 }
