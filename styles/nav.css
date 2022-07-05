@@ -21,10 +21,10 @@
 
 .nav-item-container {
     border: 2px solid blue;
-    width: 75%;
+    width: 52%;
     height: 70px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
     cursor: pointer;
 }
@@ -33,7 +33,7 @@
     border: 2px solid black;
     font-size: 20px;
     margin-top: 2%;
-    width: 20%;
+    width: auto;
     height: 30px;
     display: flex;
     justify-content: center;
@@ -41,6 +41,13 @@
     /* padding-bottom: 15px; */
     /* background-color: white; */
 }
+/* 
+
+#expenses,
+#jobs,
+#logout {
+    width: 14%;
+} */
 
 #arrow-down {
     margin-left: 5px;
@@ -48,19 +55,20 @@
 
 .dropdown-container {
     border: 2px solid blue;
-    width: 95%;
-    height: 150px;
+    width: 100%;
+    height: 140px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 
 .dropdown-menu {
-    width: 18%;
+    width: 150px;
     height: 180px;
-    /* border: 2px solid black; */
+    border: 2px solid black;
     background-color: rgb(229, 190, 190);
-    visibility: hidden;
-    border-top: none;
+    /* visibility: hidden; */
+    /* border-top: none; */
+    margin: 0.5%;
 }
