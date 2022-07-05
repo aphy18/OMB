@@ -13,7 +13,7 @@
         <ul class="nav-item-container">
             <li class="nav-item" id="expenses">Expenses <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
             <li class="nav-item" id="jobs">Jobs <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
-            <li class="nav-item" id="options">Bank Options <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
+            <li class="nav-item" id="bank-options">Bank Options <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
             <li class="nav-item" id="logout">Logout <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
         </ul>
 
@@ -21,18 +21,18 @@
             <div class="dropdown-menu" id="dropdown-menu-1">
                 <a href="/expenses">Pay Expense</a>
             </div>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" id="dropdown-menu-2">
                 <a href="" class="nav-link">Main Page</a>
                 <a href="" class="nav-link">Flower Shop</a>
                 <a href="" class="nav-link">Day Camp</a>
                 <a href="" class="nav-link">Burger Factory</a>
             </div>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" id="dropdown-menu-3">
                 <a href="/deposit" class="nav-link">Deposit Money</a>
                 <a href="/withdrawal" class="nav-link">Withdrawal Money</a>
                 <a href="/transfer" class="nav-link">Transfer Money</a>
             </div>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" id="dropdown-menu-4">
                 <a href="/logout" class="nav-link">Return to Login Page</a>
             </div>
         </div>
@@ -42,29 +42,62 @@
 
 
 <script>
-    // let arrow = document.querySelector('#arrow-down');
-    // let expenses = document.querySelector('#expenses');
-    // let isDropDownActive = 0;
-
-
-    // function navDropDown(tab) {
-    //     expenses.addEventListener('mouseover', () => {
-    //         // console.log(isDropDownActive)
-    //         tab.style.height = '220px';
-    //         tab.style.width = '180px';
-    //         tab.style.backgroundColor = 'grey'
-        
-
-    //     })
-
-    //     expenses.addEventListener('mouseleave', () => {
-    //         tab.style.height = '30px';
-    //         tab.style.width = '20%';
-    //         tab.style.backgroundColor = 'turquoise'
-    //     })
-    // }
-
+    let expenses = document.querySelector('#expenses')
+    let jobs = document.querySelector('#jobs')
+    let bankOptions = document.querySelector('#bank-options')
+    let logout = document.querySelector('#logout')
     
-    // navDropDown(expenses)
+    let dropOne = document.querySelector('#dropdown-menu-1')
+    let dropTwo = document.querySelector('#dropdown-menu-2')
+    let dropThree = document.querySelector('#dropdown-menu-3')
+    let dropFour = document.querySelector('#dropdown-menu-4')
 
+    function enableDropDown(tabOne, tabTwo, tabThree, tabFour) {
+        tabOne.addEventListener('mouseover', () => {
+            dropOne.style.visibility = 'visible';
+            dropTwo.style.visibility = 'hidden';
+            dropThree.style.visibility = 'hidden';
+            dropFour.style.visibility = 'hidden';
+        })
+
+        tabOne.addEventListener('mouseleave', () => {
+            dropOne.style.visibility = 'hidden';
+        })
+
+        tabTwo.addEventListener('mouseover', () => {
+            dropTwo.style.visibility = 'visible';
+            dropOne.style.visibility = 'hidden';
+            dropThree.style.visibility = 'hidden';
+            dropFour.style.visibility = 'hidden';
+        })
+
+        tabTwo.addEventListener('mouseleave', () => {
+            dropTwo.style.visibility = 'hidden';
+        })
+
+
+        tabThree.addEventListener('mouseover', () => {
+            dropThree.style.visibility = 'visible';
+            dropTwo.style.visibility = 'hidden';
+            dropOne.style.visibility = 'hidden';
+            dropFour.style.visibility = 'hidden';
+        })
+
+        tabThree.addEventListener('mouseleave', () => {
+            dropThree.style.visibility = 'hidden';
+        })
+
+        tabFour.addEventListener('mouseover', () => {
+            dropFour.style.visibility = 'visible';
+            dropTwo.style.visibility = 'hidden';
+            dropThree.style.visibility = 'hidden';
+            dropOne.style.visibility = 'hidden';
+        })
+
+        tabFour.addEventListener('mouseleave', () => {
+            dropFour.style.visibility = 'hidden';
+        })
+    }
+
+    enableDropDown(expenses, jobs, bankOptions, logout)
 </script>

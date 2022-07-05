@@ -30,7 +30,7 @@
 }
 
 .nav-item {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     font-size: 20px;
     margin-top: 2%;
     width: auto;
@@ -57,7 +57,7 @@
 .dropdown-container {
     /* border: 2px solid blue; */
     width: 100%;
-    height: 90px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,9 +70,7 @@
     /* height: 0px; */
     border: 2px solid black;
     background-color: rgb(229, 190, 190);
-    /* visibility: hidden; */
-    /* border-top: none; */
-    
+    visibility: hidden;    
     font-size: 19px;
     text-align: center;
     text-decoration: none;
