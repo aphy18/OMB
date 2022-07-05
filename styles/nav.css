@@ -30,7 +30,7 @@
 }
 
 .nav-item {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     font-size: 20px;
     margin-top: 2%;
     width: 18%;
@@ -38,11 +38,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
     /* background-color: white; */
 }
+
+#arrow-down {
+    margin-left: 5px;
+}
+
 .dropdown-container {
-    /* border: 2px solid blue; */
+    border: 2px solid blue;
     width: 95%;
     height: 150px;
     display: flex;
