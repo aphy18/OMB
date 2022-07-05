@@ -72,6 +72,13 @@ app.post('/login', async (req,res) => {
     }
 })
 
+
+app.get('/logout', (req,res) => {
+    req.session.user = null;
+    res.redirect('/login')
+
+})
+
 app.get('/deadend', async (req,res) => {
     res.status(400).send('nothing past here')
 })
