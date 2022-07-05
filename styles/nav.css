@@ -10,22 +10,22 @@
 .item-and-dropdown-container {
     border: 2px solid red;
     width: 60%;
-    height: 350px;
+    height: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     transform: translateY(65px);
 
 }
 
 .nav-item-container {
-    /* border: 2px solid black; */
-    width: 95%;
+    border: 2px solid blue;
+    width: 75%;
     height: 70px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     cursor: pointer;
 }
 
@@ -33,8 +33,8 @@
     border: 2px solid black;
     font-size: 20px;
     margin-top: 2%;
-    width: 18%;
-    /* height: 10px; */
+    width: 20%;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
