@@ -9,17 +9,17 @@
 <body>
     <form action="/transfer" method="POST">
         <label for="first-account">Transfer From:</label>
-        <select name="from" id="first-account">
+        <select name="from" id="first-account" required>
             <option value="chequing">Chequing (<%= user.chequing %>)</option>
             <option value="savings">Saving (<%= user.savings %>)</option>
         </select>
         <label for="second-account">To:</label>
-        <select name="to" id="second-account">
+        <select name="to" id="second-account" required>
             <option value="chequing">Chequing (<%= user.chequing %>)</option>
             <option value="savings">Saving (<%= user.savings %>)</option>
         </select>
         <label for="amount">Amount:</label>
-        <input type="text" name="amount" id="amount">
+        <input type="text" name="amount" id="amount" required>
         <button type="submit">Submit</button>
     </form>
 </body>

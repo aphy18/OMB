@@ -87,19 +87,37 @@ app.get('/transfer', (req,res) => {
 app.post('/transfer', async(req,res) => {
     const { from, to , amount } = req.body;
     const user = req.session.user;
+    let chequing = user.chequing;
+    let savings = user.savings;
 
-
-    if (from === 'chequing') {
-        user.chequing = user.chequing - parseInt(amount);
-        user.savings = user.savings + parseInt(amount);
-        await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [user.chequing, user.savings, user.id])
-
-    } else if (from === 'savings') {
-        user.savings = user.savings - parseInt(amount);
-        user.chequing = user.chequing + parseInt(amount);
-        await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [user.chequing, user.savings, user.id])
+    if (!isNaN(amount)) {
+        if (from !== to) {
+            if (from === 'chequing') {
+                if (chequing < amount) {
+                    res.status(400).send('not enough to transfer')
+                } else {
+                    chequing = user.chequing - parseInt(amount);
+                    savings = user.savings + parseInt(amount);
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [chequing, savings, user.id])
+                    res.redirect('/')
+                }
+        
+            } else if (from === 'savings') {
+                if (savings < amount) {
+                    res.status(400).send('not enough to transfer')
+                } else {
+                    savings = user.savings - parseInt(amount);
+                    chequing = user.chequing + parseInt(amount);
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [chequing, savings, user.id])
+                    res.redirect('/')
+                }
+            }
+        } else {
+            res.status(400).send('must transfer to a different account')
+        }
+    } else {
+        res.status(400).send('enter a valid amount')
     }
-   res.redirect('/')
 })
 
 app.get('/logout', (req,res) => {
