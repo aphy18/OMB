@@ -73,6 +73,29 @@ app.post('/login', async (req,res) => {
 })
 
 
+app.get('/transfer', (req,res) => {
+    try {
+        res.render('transfer')
+    } catch (err) {
+        console.log(err.message)
+    } 
+})
+
+app.post('/transfer', async(req,res) => {
+    const { first, second, amount } = req.body;
+    let userID = req.session.user.id;
+    console.log('req body from transfer -->', req.body)
+    if (isNaN(amount)) {
+        res.status(400).send('amount needs to be a numerical value')
+    }
+
+    let transfer = await pool.query('SELECT chequing, savings FROM account WHERE user_id = $1', [userID])
+
+    console.log(transfer.rows)
+    
+
+})
+
 app.get('/logout', (req,res) => {
     req.session.user = null;
     res.redirect('/login')

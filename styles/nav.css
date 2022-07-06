@@ -8,13 +8,13 @@
 }
 
 .item-and-dropdown-container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 60%;
     height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
     transform: translateY(65px);
 
 }
@@ -27,10 +27,11 @@
     justify-content: space-between;
     align-items: flex-start;
     cursor: pointer;
+    margin-right: 1%;
 }
 
 .nav-item {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     font-size: 20px;
     margin-top: 2%;
     width: auto;
@@ -42,13 +43,16 @@
     /* background-color: white; */
 }
 
+
+
 #expenses {
     margin-right: 2%;
     /* padding-right: 50px; */
 }
 
 #logout {
-    margin-right: 0.75%;
+    margin-right: 2.5%;
+    
 }
 #arrow-down {
     margin-left: 5px;
@@ -59,7 +63,7 @@
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 

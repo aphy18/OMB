@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/transfer" method="POST">
+        <label for="first-account">Transfer From:</label>
+        <select name="first" id="first-account">
+            <option value="chequing">Chequing</option>
+            <option value="saving">Saving</option>
+        </select>
+        <label for="second-account">To:</label>
+        <select name="second" id="second-account">
+            <option value="chequing">Chequing</option>
+            <option value="saving">Saving</option>
+        </select>
+        <label for="amount">Amount:</label>
+        <input type="text" name="amount" id="amount">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
