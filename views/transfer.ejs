@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+
+    <%- include('partials/nav.ejs') %>
+
+
     <form action="/transfer" method="POST">
         <label for="first-account">Transfer From:</label>
         <select name="from" id="first-account" required>

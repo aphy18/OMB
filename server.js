@@ -120,6 +120,15 @@ app.post('/transfer', async(req,res) => {
     }
 })
 
+
+app.get('/deposit', async (req,res) => {
+    res.render('deposit')
+})
+
+app.post('/deposit', async (req,res) => {
+
+})
+
 app.get('/logout', (req,res) => {
     req.session.user = null;
     res.redirect('/login')
