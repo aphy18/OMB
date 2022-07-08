@@ -9,7 +9,6 @@ CREATE TABLE person (
     last_name VARCHAR(50) NOT NULL,
     card_number INTEGER NOT NULL,
     user_password VARCHAR(50) NOT NULL,
-    money_on_hand INTEGER NOT NULL,
     is_employed BOOLEAN NOT NULL
 );
 
@@ -17,6 +16,7 @@ CREATE TABLE account (
     id SERIAL PRIMARY KEY,
     chequing INTEGER NOT NULL,
     savings INTEGER NOT NULL,
+    money_on_hand INTEGER NOT NULL,
     user_id INTEGER REFERENCES person(id) ON DELETE CASCADE
 );
 

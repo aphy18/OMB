@@ -126,7 +126,37 @@ app.get('/deposit', async (req,res) => {
 })
 
 app.post('/deposit', async (req,res) => {
+    console.log('req body -->', req.body)
+    let user = req.session.user;
+    let { money_on_hand, chequing, savings } = user;
+    let { account, amount } = req.body;
 
+    console.log('testing -->', money_on_hand, chequing)
+
+    if (!isNaN(amount)) {
+        if (money_on_hand > amount) {
+            if (account === 'chequing') {
+                chequing = chequing + parseInt(amount);
+                money_on_hand = money_on_hand - parseInt(amount);
+                console.log('user -->', user, chequing, money_on_hand)
+                
+                await pool.query('UPDATE account SET chequing = $1, person.money_on_hand = $2 FROM person WHERE account.user_id = person.id', [chequing, money_on_hand])
+
+                
+            } else if (account === 'savings') {
+                let newBalance = savings + parseInt(amount);
+                let newMoneyOnHand = money_on_hand - parseInt(amount);
+
+                // console.log()
+                // await pool.query('UPDATE account SET savings = $1 WHERE user_id = $2', [newBalance, user.id])
+                // await pool.query('UPDATE person SET money_on_hand = $1 WHERE id = $2', [newMoneyOnHand, user.id])
+                res.redirect('/')
+            }
+            
+        } else {
+            res.status(400).send('not enough money on hand')
+        }
+    }
 })
 
 app.get('/logout', (req,res) => {
