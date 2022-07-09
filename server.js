@@ -156,6 +156,45 @@ app.post('/deposit', async (req,res) => {
     }
 })
 
+app.get('/withdrawal', async (req,res) => {
+    res.render('withdrawal')
+})
+
+app.post('/withdrawal', async (req,res) => {
+    let user = req.session.user;
+    let { money_on_hand, chequing, savings } = user;
+    let { account, amount } = req.body;
+
+    if (!isNaN(amount)) {
+        
+        if (account === 'chequing') {
+
+            if (chequing >= amount) {
+                user.chequing = chequing - parseInt(amount);
+                user.money_on_hand = money_on_hand + parseInt(amount);
+                await pool.query('UPDATE account SET chequing = $1, money_on_hand = $2 WHERE user_id = $3', [chequing, money_on_hand, user.id])
+                res.redirect('/')
+
+            } else {
+                res.status(400).send('Not enough to withdrawal')
+            }
+                
+        } else if (account === 'savings') {
+            
+            if (savings >= amount) {
+                user.savings = savings - parseInt(amount);
+                user.money_on_hand = money_on_hand + parseInt(amount);
+                await pool.query('UPDATE account SET savings = $1, money_on_hand = $2 WHERE user_id = $3', [savings, money_on_hand, user.id])
+                res.redirect('/')
+            } else {
+                res.status(400).send('Not enough to withdrawal')
+            }
+                
+        }
+            
+    }
+})
+
 app.get('/logout', (req,res) => {
     req.session.user = null;
     res.redirect('/login')

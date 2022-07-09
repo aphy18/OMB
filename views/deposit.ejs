@@ -8,14 +8,15 @@
 </head>
 <body>
 
+    <%- include('partials/nav.ejs') %>
+
     <style>
         body {
     margin: 0;
     border: 2px solid black;
     height: 800px;
 }
-
-    </style>
+ </style>
     <form action="/deposit" method="POST">
         <label for="select-deposit">Select Account</label>
         <select name="account" id="select-deposit">
