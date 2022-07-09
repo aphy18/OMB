@@ -87,8 +87,10 @@ app.get('/transfer', (req,res) => {
 app.post('/transfer', async(req,res) => {
     const { from, to , amount } = req.body;
     const user = req.session.user;
-    let chequing = user.chequing;
-    let savings = user.savings;
+    let { chequing, savings } = user;
+
+
+    console.log('req body -->', req.body)
 
     if (!isNaN(amount)) {
         if (from !== to) {
@@ -96,9 +98,9 @@ app.post('/transfer', async(req,res) => {
                 if (chequing < amount) {
                     res.status(400).send('not enough to transfer')
                 } else {
-                    chequing = user.chequing - parseInt(amount);
-                    savings = user.savings + parseInt(amount);
-                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [chequing, savings, user.id])
+                    user.chequing = chequing = chequing - parseInt(amount);
+                    user.savings = savings = savings + parseInt(amount);
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2', [chequing, savings])
                     res.redirect('/')
                 }
         
@@ -106,9 +108,9 @@ app.post('/transfer', async(req,res) => {
                 if (savings < amount) {
                     res.status(400).send('not enough to transfer')
                 } else {
-                    savings = user.savings - parseInt(amount);
-                    chequing = user.chequing + parseInt(amount);
-                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [chequing, savings, user.id])
+                    user.savings = savings - parseInt(amount);
+                    user.chequing = chequing = chequing + parseInt(amount);
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2', [chequing, savings])
                     res.redirect('/')
                 }
             }
@@ -136,20 +138,15 @@ app.post('/deposit', async (req,res) => {
     if (!isNaN(amount)) {
         if (money_on_hand > amount) {
             if (account === 'chequing') {
-                chequing = chequing + parseInt(amount);
-                money_on_hand = money_on_hand - parseInt(amount);
-                console.log('user -->', user, chequing, money_on_hand)
-                
-                await pool.query('UPDATE account SET chequing = $1, person.money_on_hand = $2 FROM person WHERE account.user_id = person.id', [chequing, money_on_hand])
-
+                user.chequing = chequing + parseInt(amount);
+                user.money_on_hand = money_on_hand - parseInt(amount);
+                await pool.query('UPDATE account SET chequing = $1, money_on_hand = $2', [chequing, money_on_hand])
+                res.redirect('/')
                 
             } else if (account === 'savings') {
-                let newBalance = savings + parseInt(amount);
-                let newMoneyOnHand = money_on_hand - parseInt(amount);
-
-                // console.log()
-                // await pool.query('UPDATE account SET savings = $1 WHERE user_id = $2', [newBalance, user.id])
-                // await pool.query('UPDATE person SET money_on_hand = $1 WHERE id = $2', [newMoneyOnHand, user.id])
+                user.savings = savings + parseInt(amount);
+                user.money_on_hand = money_on_hand - parseInt(amount);
+                await pool.query('UPDATE account SET savings = $1, money_on_hand = $2', [savings, money_on_hand])
                 res.redirect('/')
             }
             
@@ -172,6 +169,5 @@ app.get('/deadend', async (req,res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`app listening on port ${port}`)
+app.listen(port, () => { 
 })
