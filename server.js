@@ -100,7 +100,7 @@ app.post('/transfer', async(req,res) => {
                 } else {
                     user.chequing = chequing = chequing - parseInt(amount);
                     user.savings = savings = savings + parseInt(amount);
-                    await pool.query('UPDATE account SET chequing = $1, savings = $2', [chequing, savings])
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [chequing, savings, user.id])
                     res.redirect('/')
                 }
         
@@ -110,7 +110,7 @@ app.post('/transfer', async(req,res) => {
                 } else {
                     user.savings = savings - parseInt(amount);
                     user.chequing = chequing = chequing + parseInt(amount);
-                    await pool.query('UPDATE account SET chequing = $1, savings = $2', [chequing, savings])
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [chequing, savings, user.id])
                     res.redirect('/')
                 }
             }
@@ -136,17 +136,17 @@ app.post('/deposit', async (req,res) => {
     console.log('testing -->', money_on_hand, chequing)
 
     if (!isNaN(amount)) {
-        if (money_on_hand > amount) {
+        if (money_on_hand >= amount) {
             if (account === 'chequing') {
                 user.chequing = chequing + parseInt(amount);
                 user.money_on_hand = money_on_hand - parseInt(amount);
-                await pool.query('UPDATE account SET chequing = $1, money_on_hand = $2', [chequing, money_on_hand])
+                await pool.query('UPDATE account SET chequing = $1, money_on_hand = $2 WHERE user_id = $3', [chequing, money_on_hand, user.id])
                 res.redirect('/')
                 
             } else if (account === 'savings') {
                 user.savings = savings + parseInt(amount);
                 user.money_on_hand = money_on_hand - parseInt(amount);
-                await pool.query('UPDATE account SET savings = $1, money_on_hand = $2', [savings, money_on_hand])
+                await pool.query('UPDATE account SET savings = $1, money_on_hand = $2 WHERE user_id = $3', [savings, money_on_hand, user.id])
                 res.redirect('/')
             }
             

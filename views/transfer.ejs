@@ -10,7 +10,13 @@
 
     <%- include('partials/nav.ejs') %>
 
-
+    <style>
+        body {
+    margin: 0;
+    border: 2px solid black;
+    }
+    </style>
+    
     <form action="/transfer" method="POST">
         <label for="first-account">Transfer From:</label>
         <select name="from" id="first-account" required>
