@@ -24,8 +24,8 @@ CREATE TABLE job (
     id SERIAL PRIMARY KEY,
     job_name VARCHAR(100) NOT NULL,
     job_description VARCHAR(500) NOT NULL,
-    salary INTEGER NOT NULL,
-    shift INTEGER NOT NULL
+    salary REAL NOT NULL,
+    shift VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE job_application (
@@ -33,6 +33,7 @@ CREATE TABLE job_application (
     question_1 VARCHAR(100) NOT NULL,
     question_2 VARCHAR(100) NOT NULL,
     question_3 VARCHAR(100) NOT NULL,
+    hired BOOLEAN NOT NULL,
     user_id INTEGER REFERENCES person(id) ON DELETE CASCADE,
     job_id INTEGER REFERENCES job(id) ON DELETE CASCADE
 );
