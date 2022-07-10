@@ -153,6 +153,8 @@ app.post('/deposit', async (req,res) => {
         } else {
             res.status(400).send('not enough money on hand')
         }
+    } else {
+        res.status(400).send('Amount entered is not a number')
     }
 })
 
