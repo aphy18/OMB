@@ -197,6 +197,13 @@ app.post('/withdrawal', async (req,res) => {
     }
 })
 
+app.get('/jobs', async (req, res) => {
+    let jobs = await pool.query('SELECT * FROM job')
+    let getJobs = jobs.rows
+    console.log('jobs -->', getJobs)
+    res.render("jobs", { getJobs })
+})
+
 app.get('/logout', (req,res) => {
     req.session.user = null;
     res.redirect('/login')
