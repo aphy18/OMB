@@ -26,10 +26,23 @@
                     <span><%= job.job_name %>: </span>
                     <span><%= job.salary %>/hour</span>
                 </header>
+                <article class="job-body">
+                    <p><%= job.job_description %></p>
+                </article>
+
+                <div class="job-footer">
+                    <a href="/"><button class="job-button" type="submit">Apply</button></a>
+                    <a href=""><button class="job-button" typ="submit">Work</button></a>
+                </div>
+    
+
             </div>
         <% } %>
     </div>
 
+    <div>
+        <li class="item"></li>
+    </div>$*5
 
 </body>
 </html>
