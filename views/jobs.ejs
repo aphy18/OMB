@@ -20,7 +20,12 @@
     
     <h1>jobs</h1>
 
-    <p><%= getJobs[0].job_name %></p>
+    <% for (let job of getJobs) { %>
+        <div class="job">
+            <span><%= job.job_name %></span>
+            <span><%= job.salary %>/hour</span>
+        </div>
+    <% } %>
 
 
 </body>

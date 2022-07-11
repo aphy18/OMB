@@ -34,6 +34,5 @@ CREATE TABLE job_application (
     question_2 VARCHAR(100) NOT NULL,
     question_3 VARCHAR(100) NOT NULL,
     hired BOOLEAN NOT NULL,
-    user_id INTEGER REFERENCES person(id) ON DELETE CASCADE,
     job_id INTEGER REFERENCES job(id) ON DELETE CASCADE
 );
