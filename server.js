@@ -30,7 +30,7 @@ app.get('/', async (req,res) => {
         let user = req.session.user;
         
         if (!user) {
-            res.status(400).send('You must log in to access the home page')
+            res.redirect('/login')
         } else {
             res.render('home', { user })
             console.log('current user --->', user)
@@ -74,10 +74,15 @@ app.post('/login', async (req,res) => {
 
 
 app.get('/transfer', (req,res) => {
+    
     try {
         let user = req.session.user;
-        console.log('user -->', user)
-        res.render('transfer', { user })
+        if (!user) {
+            res.redirect('/login')
+        } else {
+            console.log('user -->', user)
+            res.render('transfer', { user })
+        }
     
     } catch (err) {
         console.log(err.message)
@@ -124,7 +129,12 @@ app.post('/transfer', async(req,res) => {
 
 
 app.get('/deposit', async (req,res) => {
-    res.render('deposit')
+    let user = req.session.user;
+    if (!user) {
+        res.redirect('/login')
+    } else {
+        res.render('deposit')
+    }
 })
 
 app.post('/deposit', async (req,res) => {
@@ -159,7 +169,12 @@ app.post('/deposit', async (req,res) => {
 })
 
 app.get('/withdrawal', async (req,res) => {
-    res.render('withdrawal')
+    let user = req.session.user;
+    if (!user) {
+        res.redirect('/login')
+    } else {
+        res.render('withdrawal')  
+    } 
 })
 
 app.post('/withdrawal', async (req,res) => {
@@ -198,11 +213,44 @@ app.post('/withdrawal', async (req,res) => {
 })
 
 app.get('/jobs', async (req, res) => {
-    let jobs = await pool.query('SELECT * FROM job')
-    let getJobs = jobs.rows
-    console.log('jobs -->', getJobs)
-    res.render("jobs", { getJobs })
+    try {
+        let user = req.session.user;
+        if (!user) {
+            res.redirect('/login')
+        } else {
+            let jobs = await pool.query('SELECT * FROM job JOIN job_application ON job.id = job_id')
+            let getJobs = jobs.rows
+            let storeButtonType = {};
+            for (let i=0; i < getJobs.length; i++) {
+                if (getJobs[i].hired === true) {
+                    storeButtonType[`btn${i}`] = 'disabled'
+                } else {
+                    storeButtonType[`btn${i}`] = 'submit'
+                }
+            }
+            
+            console.log('jobs -->', getJobs)
+            res.render("jobs", { getJobs, storeButtonType })
+        }
+    } catch (err) {
+        console.log(err.message)
+    }
 })
+
+
+app.get('/job/:job_name', async (req,res) => {
+    try {
+        let user = req.session.user;
+        if (!user) {
+            res.redirect('/login')
+        } else {
+
+        }
+    } catch (err) {
+        console.log(err.message)
+    }
+})
+
 
 app.get('/logout', (req,res) => {
     req.session.user = null;
@@ -218,4 +266,4 @@ app.get('/deadend', async (req,res) => {
 
 
 app.listen(port, () => { 
-})
+console.log(`Listening on port ${port}`)})

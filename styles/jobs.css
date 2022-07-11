@@ -23,6 +23,7 @@
 .job-body {
     border: 2px solid red;
     height: 220px;
+    font-size: 19px;
 }
 
 .job-button {
