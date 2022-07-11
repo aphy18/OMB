@@ -1,0 +1,21 @@
+.jobs-container {
+    border: 2px solid red;
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.job {
+    border: 2px solid black;
+    width: 25%;
+    height: 350px;
+    margin-top: 10px;
+}
+
+.job-header {
+    border: 2px solid blue;
+    height: 40px;
+    font-size: 25px;
+}

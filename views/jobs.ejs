@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles/jobs.css">
 </head>
 <body>
 
@@ -13,19 +14,21 @@
     <style>
         body {
     margin: 0;
-    border: 2px solid black;
-    height: 1000px;
     }
+
     </style>
     
-    <h1>jobs</h1>
 
-    <% for (let job of getJobs) { %>
-        <div class="job">
-            <span><%= job.job_name %></span>
-            <span><%= job.salary %>/hour</span>
-        </div>
-    <% } %>
+    <div class="jobs-container">
+        <% for (let job of getJobs) { %>
+            <div class="job">
+                <header class="job-header">
+                    <span><%= job.job_name %>: </span>
+                    <span><%= job.salary %>/hour</span>
+                </header>
+            </div>
+        <% } %>
+    </div>
 
 
 </body>
