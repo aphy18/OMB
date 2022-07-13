@@ -224,7 +224,7 @@ app.get('/jobs', async (req, res) => {
 
             
             for (let i=0; i < getJobs.length; i++) {
-                if (getJobs[i].hired === true) {
+                if (getJobs[i].hired) {
                     ApplyButton[`btn-${i}`] = false;
                 } else {
                     ApplyButton[`btn-${i}`] = true;
@@ -241,13 +241,13 @@ app.get('/jobs', async (req, res) => {
 })
 
 
-app.get('/job/:job_name', async (req,res) => {
+app.get('/jobs/:job_name/:id', async (req,res) => {
     try {
         let user = req.session.user;
         if (!user) {
             res.redirect('/login')
         } else {
-
+            res.render('work')
         }
     } catch (err) {
         console.log(err.message)

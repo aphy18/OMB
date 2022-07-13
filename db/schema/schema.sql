@@ -25,7 +25,7 @@ CREATE TABLE job (
     job_name VARCHAR(100) NOT NULL,
     job_description VARCHAR(500) NOT NULL,
     salary REAL NOT NULL,
-    shift VARCHAR(100) NOT NULL
+    shift INTEGER NOT NULL
 );
 
 CREATE TABLE job_application (

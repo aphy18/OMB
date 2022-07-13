@@ -32,7 +32,7 @@
                 <div class="job-footer">
                 <% if (!job.apply) { %>
                     <a href="/"><button class='job-button' disabled>Apply</button></a>
-                    <a href="/"><button class='job-button'>Work</button></a>
+                    <a href="/jobs/<%=job.job_name%>/<%=job.job_id%>"><button class='job-button'>Work</button></a>
                 <% } else { %>
                     <a href="/"><button class='job-button'>Apply</button></a>
                     <a href="/"><button class='job-button' disabled>Work</button></a>
