@@ -26,16 +26,18 @@
     font-size: 19px;
 }
 
-.job-button {
-    margin: 7px;
-    width: 80px;
-    height: 50px;
-}
-
 .job-footer {
     border: 2px solid green;
     height: 80px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.job-button {
+    margin: 7px;
+    width: 70px;
+    height: 40px;
+    border: 2px solid rgb(72, 72, 199);
+    border-radius: 5px;
 }

@@ -218,19 +218,22 @@ app.get('/jobs', async (req, res) => {
         if (!user) {
             res.redirect('/login')
         } else {
-            let jobs = await pool.query('SELECT * FROM job JOIN job_application ON job.id = job_id')
+            let jobs = await pool.query('SELECT * FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job_application.user_id = $1', [user.id])
             let getJobs = jobs.rows
-            let storeButtonType = {};
+            let ApplyButton = {};
+
+            
             for (let i=0; i < getJobs.length; i++) {
                 if (getJobs[i].hired === true) {
-                    storeButtonType[`btn${i}`] = 'disabled'
+                    ApplyButton[`btn-${i}`] = false;
                 } else {
-                    storeButtonType[`btn${i}`] = 'submit'
+                    ApplyButton[`btn-${i}`] = true;
                 }
+                getJobs[i].apply = ApplyButton[`btn-${i}`]
             }
             
-            console.log('jobs -->', getJobs)
-            res.render("jobs", { getJobs, storeButtonType })
+            console.log('jobs ->', jobs.rows)
+            res.render("jobs", { getJobs })
         }
     } catch (err) {
         console.log(err.message)

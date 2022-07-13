@@ -20,26 +20,29 @@
     
 
     <div class="jobs-container">
-        <% for (let i = 0; i < getJobs.length; i++) { %>
+        <% for (let job of getJobs) { %>
             <div class="job">
                 <header class="job-header">
-                    <span><%= getJobs[i].job_name %>: </span>
-                    <span><%= getJobs[i].salary %>/hour</span>
+                    <span><%= job.job_name %>: </span>
+                    <span><%= job.salary %>/hour</span>
                 </header>
                 <article class="job-body">
-                    <p><%= getJobs[i].job_description %></p>
+                    <p><%= job.job_description %></p>
                 </article>
-<!-- 
                 <div class="job-footer">
-                    <a href="/"><button class="job-button" type="">Apply</button></a>
-                    <a href=""><button class="job-button" typ="submit">Work</button></a>
+                <% if (!job.apply) { %>
+                    <a href="/"><button class='job-button' disabled>Apply</button></a>
+                    <a href="/"><button class='job-button'>Work</button></a>
+                <% } else { %>
+                    <a href="/"><button class='job-button'>Apply</button></a>
+                    <a href="/"><button class='job-button' disabled>Work</button></a>
+                <% } %>
                 </div>
-     -->
-
             </div>
         <% } %>
+        
     </div>
+      
 
-
-</body>a
+</body>
 </html>
