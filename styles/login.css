@@ -34,7 +34,7 @@
     height: 600px;
     width: 55%;
     /* margin: 10px; */
-    padding: 0px 20px;
+    padding: 0px 0px 0px 20px;
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
@@ -52,14 +52,18 @@
 }
 
 .form-right-side {
-    border: 2px solid black;
-    width: 45%;
-    height: 580px; 
+    /* border: 2px solid black; */
+    width: 44%;
+    height: 600px; 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-
+    background-color: var(--text-color);
+    border-radius: 0px 10px 10px 0px;
+    font-family: Ibarra Real Nova;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .login-description {
@@ -70,6 +74,7 @@
     justify-content: center;
     align-items: center;
     font-size: 25px;
+    color: white;
 }
 
 #card-label,
@@ -83,7 +88,7 @@
 #login-card-number,
 #login-password {
     width: 75%;
-    height: 40px;
+    height: 30px;
     font-size: 20px;
     border: 2px solid grey;
 }
