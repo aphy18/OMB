@@ -46,12 +46,12 @@
     
 
         <script>
+            let login = document.querySelector('.login-header')
             let qsa = (el) => document.querySelectorAll(el);
-
             let allDescriptions = qsa('.login-description');
-
             let allDescriptionsArray = Array.from(allDescriptions)
 
+            let loginTitle = 'Online Money Banker'
             let d1Sentence = 'Keep Cash on Hand';
             let d2Sentence = 'Deposit | Withdrawal | Transfer';
             let d3Sentence = 'Pay Expenses on Time';
@@ -59,8 +59,8 @@
             let d5Sentence = 'Better State of Mind';
 
            
-
-            // function loopOverText(sentence)
+            
+        
 
             function loopOverText(index, sentence) {
                 for (let i=0; i < sentence.length; i++) {
@@ -70,22 +70,26 @@
                 }
             }
 
-            loopOverText(0, d1Sentence)
-
+            
+          
             const displayText = new Promise((res,rej) => {
+
                 setTimeout(() => {
-                loopOverText(1, d2Sentence)
-                setTimeout(() => {
-                    loopOverText(2, d3Sentence)
+                    loopOverText(0, d1Sentence)
                     setTimeout(() => {
-                        loopOverText(3, d4Sentence)
+                        loopOverText(1, d2Sentence)
                         setTimeout(() => {
-                            loopOverText(4, d5Sentence)
-                        }, 1400)
-                    }, 1500)
-                }, 2000)
-            }, 1500)
-        
+                            loopOverText(2, d3Sentence)
+                            setTimeout(() => {
+                                loopOverText(3, d4Sentence)
+                                setTimeout(() => {
+                                    loopOverText(4, d5Sentence)
+                                }, 1000)
+                            }, 1200)
+                        }, 1700)
+                    }, 1200)
+                }, 800)
+
             })
         
             
