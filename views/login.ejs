@@ -21,12 +21,16 @@
 
         <form action="/login" class="login-form" method="POST">
             <div class="form-left-side">
-                <label for="login-card-number" id="card-label">Card Number:</label>
-                <input type="text" name="card" id="login-card-number" required>
+                <div class="card-number-container">
+                    <label for="login-card-number" id="card-label">Card Number:</label>
+                    <input type="text" name="card" id="login-card-number" required>
+                </div>
 
-                <label for="login-password" id="password-label">Password:</label>
-                <input type="password" name="password" id="login-password" required>
-
+                <div class="login-password-container">
+                    <label for="login-password" id="password-label">Password:</label>
+                    <input type="password" name="password" id="login-password" required>
+                </div>
+                
                 <button type="submit" class="login-button">Login</button>
             </div>
 
@@ -84,8 +88,7 @@
         
             })
         
-            displayText
-            .then()
+            
             
         
 

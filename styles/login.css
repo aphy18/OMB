@@ -1,7 +1,8 @@
 :root {
     --text-color: rgb(206, 77, 77);
-    --input-field: rgb(238, 180, 180);
+    --input-field: rgb(255, 255, 255);
     --hover: rgb(180, 44, 44);
+    --form: rgb(243, 214, 214);
 }
 
 
@@ -13,16 +14,20 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Heebo, Lora;
 }
 
 .login-header { 
-    color: var(--text-color);
+    color: white;
     /* border: 2px solid black; */
     width: 600px;
-    font-size: 45px;
+    height: 205px;
+    font-size: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    border-radius: 50% 20% / 10% 40%;
+    background-color: var(--text-color);
 }
 
 #header-mug {
@@ -48,16 +53,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(243, 214, 214);
 }
 
 .form-left-side {
     /* border: 2px solid black; */
-    width: 550px;
-    height: 580px;
+    width: 650px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.card-number-container,
+.login-password-container {
+    /* border: 2px solid blue; */
+    width: 80%;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
+    align-items: flex-start;
+    margin-left: 2%;
 }
 
 .form-right-side {
@@ -73,6 +91,7 @@
     font-family: Ibarra Real Nova;
     font-weight: 400;
     font-style: italic;
+    padding: 0px 50px;
 }
 
 .login-description {
@@ -82,21 +101,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 29px;
     color: white;
 }
 
 #card-label,
 #password-label {
-    color: var(--text-color);
-    font-size: 25px;
+    font-size: 29px;
     font-weight: bolder;
-
+    color: rgb(207, 52, 52);
 }
 
 #login-card-number,
 #login-password {
-    width: 75%;
+    width: 90%;
     height: 30px;
     font-size: 20px;
     border: 2px solid grey;
@@ -112,12 +130,12 @@
     width: 150px;
     height: 50px;
     border-radius: 15px;
-    border: 2px solid white;
+    border: 2px solid var(--text-color);
     align-self: center;
     font-size: 23px;
     color: white;
     background-color: var(--text-color);
-    margin-right: 150px;
+    margin-right: 100px;
 }
 
 .login-button:hover {
