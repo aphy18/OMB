@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
 
@@ -16,7 +17,7 @@
     </style>
 
     <div class="login-container">
-        <h1 class="login-header">Sign into Your Account</h1>
+        <h1 class="login-header">Online Money Banker <i class="fa-solid fa-mug-hot" id="header-mug"></i></h1>
 
         <form action="/login" class="login-form" method="POST">
             <div class="form-left-side">
@@ -66,8 +67,9 @@
             }
 
             loopOverText(0, d1Sentence)
-        
-            setTimeout(() => {
+
+            const displayText = new Promise((res,rej) => {
+                setTimeout(() => {
                 loopOverText(1, d2Sentence)
                 setTimeout(() => {
                     loopOverText(2, d3Sentence)
@@ -80,7 +82,11 @@
                 }, 2000)
             }, 1500)
         
-
+            })
+        
+            displayText
+            .then()
+            
         
 
         </script>
