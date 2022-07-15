@@ -19,15 +19,70 @@
         <h1 class="login-header">Sign into Your Account</h1>
 
         <form action="/login" class="login-form" method="POST">
-            <label for="login-card-number" id="card-label">Card Number:</label>
-            <input type="text" name="card" id="login-card-number" placeholder="enter card #" required>
+            <div class="form-left-side">
+                <label for="login-card-number" id="card-label">Card Number:</label>
+                <input type="text" name="card" id="login-card-number" placeholder="enter card #" required>
 
-            <label for="login-password" id="password-label">Password:</label>
-            <input type="password" name="password" id="login-password" placeholder="enter password" required>
+                <label for="login-password" id="password-label">Password:</label>
+                <input type="password" name="password" id="login-password" placeholder="enter password" required>
 
-            <button type="submit" class="login-button">Login</button>
+                <button type="submit" class="login-button">Login</button>
+            </div>
+
+            <div class="form-right-side">
+                <p class="login-description" id="d-1"></p>
+                <p class="login-description" id="d-2"></p>
+                <p class="login-description" id="d-3"></p>
+                <p class="login-description" id="d-4"></p>
+                <p class="login-description" id="d-5"></p>
+            </div>
         </form>
     </div>
     
+
+        <script>
+            let qsa = (el) => document.querySelectorAll(el);
+
+            let allDescriptions = qsa('.login-description');
+
+            let allDescriptionsArray = Array.from(allDescriptions)
+
+            let d1Sentence = 'Keep Cash on Hand';
+            let d2Sentence = 'Deposit | Withdrawal | Transfer';
+            let d3Sentence = 'Pay Expenses on Time';
+            let d4Sentence = 'Work to Earn';
+            let d5Sentence = 'Better State of Mind';
+
+           
+
+            // function loopOverText(sentence)
+
+            function loopOverText(index, sentence) {
+                for (let i=0; i < sentence.length; i++) {
+                    setTimeout(() => {
+                        allDescriptionsArray[index].innerHTML += sentence[i]
+                    }, i * 50)
+                }
+            }
+
+            loopOverText(0, d1Sentence)
+        
+            setTimeout(() => {
+                loopOverText(1, d2Sentence)
+                setTimeout(() => {
+                    loopOverText(2, d3Sentence)
+                    setTimeout(() => {
+                        loopOverText(3, d4Sentence)
+                        setTimeout(() => {
+                            loopOverText(4, d5Sentence)
+                        }, 1400)
+                    }, 1500)
+                }, 2000)
+            }, 1500)
+        
+
+        
+
+        </script>
 </body>
 </html>
