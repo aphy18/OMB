@@ -1,104 +1,57 @@
 <link rel="stylesheet" href="../../styles/nav.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-<header class="nav-container">
-    <!-- <ul class="nav-list">
-        <li class="nav-item">Pay Expense</li>
-        <li class="nav-item">Jobs</li>
-        <li class="nav-item"></li>
-        <li class="nav-item"></li>
-    </ul> -->
-    <div class="item-and-dropdown-container">
-        
-        <ul class="nav-item-container">
-            <li class="nav-item" id="expenses">Expenses <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
-            <li class="nav-item" id="jobs">Jobs <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
-            <li class="nav-item" id="bank-options">Bank Options <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
-            <li class="nav-item" id="logout">Logout <i class="fa-solid fa-angle-down" id="arrow-down"></i></li>
-        </ul>
+<nav class="nav-container">
 
-        <div class="dropdown-container">
-            <div class="dropdown-menu" id="dropdown-menu-1">
-                <a href="/expenses">Pay Expense</a>
+        <div class="nav-list-container">
+
+            <div class="nav-list">
+                <button class="nav-list-button">Home</button>
             </div>
-            <div class="dropdown-menu" id="dropdown-menu-2">
-                <a href="/jobs" class="nav-link">Main Page</a>
-                <a href="" class="nav-link">Flower Shop</a>
-                <a href="" class="nav-link">Day Camp</a>
-                <a href="" class="nav-link">Burger Factory</a>
+
+            <div class="nav-list">
+                <button class="nav-list-button">Expenses</button>
+                <ul class="nav-list-dropdown">
+                    <li>Gas</li>
+                    <li>Medical Bills</li>
+                    <li>Rent</li>
+                    <li>Electricity</li>
+                </ul>
             </div>
-            <div class="dropdown-menu" id="dropdown-menu-3">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/deposit" class="nav-link">Deposit Money</a>
-                <a href="/withdrawal" class="nav-link">Withdrawal Money</a>
-                <a href="/transfer" class="nav-link">Transfer Money</a>
+
+            <div class="nav-list">
+                <button class="nav-list-button">Jobs</button>
+                <ul class="nav-list-dropdown">
+                    <li>Burger Factory</li>
+                    <li>Flower Shop</li>
+                    <li>Day Camp</li>
+                </ul>
             </div>
-            <div class="dropdown-menu" id="dropdown-menu-4">
-                <a href="/logout" class="nav-link">Login Page</a>
+
+            <div class="nav-list">
+                <button class="nav-list-button">Banking Options</button>
+                <ul class="nav-list-dropdown">
+                    <li>Deposit</li>
+                    <li>Withdrawal</li>
+                    <li>Transfer</li>
+                </ul>
             </div>
+
+            <div class="nav-list">
+                <button class="nav-list-button">Logout</button>
+                <ul class="nav-list-dropdown">
+                    <li>Return to Login Page</li>
+                </ul>
+            </div>
+
+
+
         </div>
 
-    </div>
-</header>
 
 
-<script>
-    let expenses = document.querySelector('#expenses')
-    let jobs = document.querySelector('#jobs')
-    let bankOptions = document.querySelector('#bank-options')
-    let logout = document.querySelector('#logout')
-    
-    let dropOne = document.querySelector('#dropdown-menu-1')
-    let dropTwo = document.querySelector('#dropdown-menu-2')
-    let dropThree = document.querySelector('#dropdown-menu-3')
-    let dropFour = document.querySelector('#dropdown-menu-4')
 
-    function enableDropDown(tabOne, tabTwo, tabThree, tabFour) {
-        tabOne.addEventListener('mouseover', () => {
-            dropOne.style.visibility = 'visible';
-            dropTwo.style.visibility = 'hidden';
-            dropThree.style.visibility = 'hidden';
-            dropFour.style.visibility = 'hidden';
-        })
-
-        dropOne.addEventListener('mouseleave', () => {
-            dropOne.style.visibility = 'hidden';
-        })
-
-        tabTwo.addEventListener('mouseover', () => {
-            dropTwo.style.visibility = 'visible';
-            dropOne.style.visibility = 'hidden';
-            dropThree.style.visibility = 'hidden';
-            dropFour.style.visibility = 'hidden';
-        })
-
-        dropTwo.addEventListener('mouseleave', () => {
-            dropTwo.style.visibility = 'hidden';
-        })
+        
+</nav>
 
 
-        tabThree.addEventListener('mouseover', () => {
-            dropThree.style.visibility = 'visible';
-            dropTwo.style.visibility = 'hidden';
-            dropOne.style.visibility = 'hidden';
-            dropFour.style.visibility = 'hidden';
-        })
-
-        dropThree.addEventListener('mouseleave', () => {
-            dropThree.style.visibility = 'hidden';
-        })
-
-        tabFour.addEventListener('mouseover', () => {
-            dropFour.style.visibility = 'visible';
-            dropTwo.style.visibility = 'hidden';
-            dropThree.style.visibility = 'hidden';
-            dropOne.style.visibility = 'hidden';
-        })
-
-        dropFour.addEventListener('mouseleave', () => {
-            dropFour.style.visibility = 'hidden';
-        })
-    }
-
-    enableDropDown(expenses, jobs, bankOptions, logout)
-</script>
