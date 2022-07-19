@@ -72,6 +72,14 @@ app.post('/login', async (req,res) => {
     }
 })
 
+app.get('/expenses', async (req,res) => {
+    try {
+        res.render('expenses')
+    } catch (err) {
+        console.log(err.message)
+    }
+})
+
 
 app.get('/transfer', (req,res) => {
     

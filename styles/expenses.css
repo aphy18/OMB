@@ -1,0 +1,14 @@
+.expenses-body-container {
+    border: 2px solid black;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.expenses-container {
+    border: 2px solid red;
+    width: 600px;
+    height: 500px;
+}
