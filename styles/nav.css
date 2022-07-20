@@ -8,7 +8,7 @@
 }
 
 .nav-list-container {
-    /* border: 2px solid black; */
+    /* border: 2px solid blue; */
     width: 60%;
     height: 70px;
     display: flex;
@@ -25,15 +25,17 @@
 
 .nav-list-button {
     width: 183px;
-    height: 50px;
+    height: 100%;
     font-size: 17px;
     background-color: rgb(206, 77, 77);
     color: white;
     border: none;
-    /* transition: background-color 0.2s ease-out; */
+    transition: background-color 0.2s ease;
+    /* border: 2px solid black; */
 }
 
-.nav-list-button:focus {
+.nav-list-button:focus,
+.nav-list-button:hover {
     background-color: rgb(238, 142, 142);
 }
 
