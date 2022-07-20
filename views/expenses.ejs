@@ -18,30 +18,16 @@
     </style>
 
     <%- include('partials/nav.ejs') %>
-    
-    <div class="expenses-body-container">
-        <div class="expenses-container">
-            <h1>Medical Bills</h1>
-            <img src="../images/Doctor-Office-Supplies.jpg" alt="" class="expense-image">
-            <button class="expense-button">Pay Expense</button>
-        </div>
-        <div class="expenses-container">
-            <h1>Electricity</h1>
-            <img src="../images/lightbulb.jpg" alt="" class="expense-image">
-            <button class="expense-button">Pay Expense</button>
-        </div>
-        <div class="expenses-container">
-            <h1>Rent</h1>
-            <img src="../images/house.jpg" alt="" class="expense-image">
-            <button class="expense-button">Pay Expense</button>
-        </div>
-        <div class="expenses-container">
-            <h1>Tuition</h1>
-            <img src="../images/textbooks.jpeg" alt="" class="expense-image">
-            <button class="expense-button">Pay Expense</button>
-        </div>
-    </div>
 
+    <div class="expenses-body-container">
+        <% for (let expense of expenses) { %>
+            <form action="/expenses" method="POST" class="expenses-container">
+                <h1><%= expense.expense_name %></h1>
+                <img src="../images/<%= expense.image_src %>" class="expense-image">
+                <button class="expense-button" name="<%= expense.expense_name %>">$ <%= expense.price %></button>
+            </form>
+        <% } %>
+    </div>
 
 </body>
 </html>

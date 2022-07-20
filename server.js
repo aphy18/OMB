@@ -61,12 +61,13 @@ app.post('/login', async (req,res) => {
         for (let person of checkLogin.rows) {
             if (person.card_number === parseInt(card) && person.user_password === password) {
                 req.session.user = person;
+                res.redirect('/')
             } else {
-                console.log('invalid card number or password')
+                console.log('incorrect username or password')
             }
         }
 
-        res.redirect('/')
+        
 
     } catch (err) {
         console.log(err.message)
@@ -77,12 +78,37 @@ app.get('/expenses', async (req,res) => {
     try {
         let getExpenses = await pool.query('SELECT * FROM expenses')
         console.log('get Expenses -->', getExpenses.rows)
-        res.render('expenses', { getExpenses })
+        let expenses = getExpenses.rows
+        req.session.allExpenses = expenses;
+        console.log('req session expesnes -->', req.session.allExpenses)
+        res.render('expenses', { expenses })
     } catch (err) {
         console.log(err.message)
     }
 })
 
+app.post('/expenses', async(req,res) => {
+    try {
+        let allExpenses = req.session.allExpenses;
+        let user = req.session.user;
+        for (let key in req.body) {
+            req.body['name'] = key
+        }
+
+        for (let expense of allExpenses) {
+            if (expense.expense_name === req.body.name) {
+                console.log('the expense -->', expense)
+                user.savings = user.savings - parseInt(expense.price)
+                await pool.query('UPDATE account SET savings = $1 WHERE id = $2', [user.savings, user.id])
+            }
+        }
+
+        res.redirect('/')
+
+    } catch (err) {
+        console.log(err.message)
+    }
+})
 
 app.get('/transfer', (req,res) => {
     
