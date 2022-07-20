@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS person CASCADE;
+DROP TABLE IF EXISTS expenses CASCADE;
 DROP TABLE IF EXISTS account CASCADE;
 DROP TABLE IF EXISTS job_application CASCADE;
 DROP TABLE IF EXISTS job CASCADE;
@@ -10,6 +11,13 @@ CREATE TABLE person (
     card_number INTEGER NOT NULL,
     user_password VARCHAR(50) NOT NULL,
     is_employed BOOLEAN NOT NULL
+);
+
+CREATE TABLE expenses (
+    id SERIAL PRIMARY KEY,
+    expense_name VARCHAR(100) NOT NULL,
+    price INTEGER NOT NULL,
+    image_src VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE account (

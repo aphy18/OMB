@@ -16,6 +16,7 @@
     justify-content: space-around;
     align-items: center;
     margin: 0px 15px 0px 15px;
+    
 }
 
 .expense-image {
@@ -27,4 +28,19 @@
     width: 160px;
     height: 55px;
     font-size: 21px;
+    background-color: rgb(206, 77, 77);
+    color: white;
+    border: 2px solid rgb(206, 77, 77);
+    border-radius: 6px;
+    
 }
+
+.expense-button:hover {
+    background-color: rgb(180, 44, 44);
+    border-color: rgb(180, 44, 44);
+}
+
+.expense-button:hover ~ h1 {
+    color: blue;
+}
+

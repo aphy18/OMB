@@ -75,7 +75,9 @@ app.post('/login', async (req,res) => {
 
 app.get('/expenses', async (req,res) => {
     try {
-        res.render('expenses')
+        let getExpenses = await pool.query('SELECT * FROM expenses')
+        console.log('get Expenses -->', getExpenses.rows)
+        res.render('expenses', { getExpenses })
     } catch (err) {
         console.log(err.message)
     }
