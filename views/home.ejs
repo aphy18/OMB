@@ -33,37 +33,19 @@
 
     <%- include('partials/nav.ejs') %>
 
-    <h1 class="home-header">Hello <%= user.first_name %></h1>
-
-    <p class="number">200</p>
+    
 
 
-<!--     
-    <script>
-        let number = document.querySelector('.number');
-        let convertToNum = parseInt(number.innerHTML);
+    <div class="home-container">   
 
-        setTimeout(() => {
-            number.style.transition = 'transform 0.5s ease';
-            number.style.transform = 'scaleX(3)';
-            number.style.transform = 'scaleY(3)';
-        },50)
+        <h1 class="home-header">Hello <%= user.first_name %></h1>
         
-       
-            setInterval(() => {
-                number.innerHTML = convertToNum++;
-                
-            },400)
 
-        </script> -->
-
-    <div class="home-container">
-        
-        <div class="money-on-hand">
-            <p>Money on Hand: <%= user.money_on_hand %></p>
-        </div>
 
         <div class="banking-info-container">
+            <div class="money-on-hand">
+                <p>Money on Hand: $<%= user.money_on_hand %>.00</p>
+            </div>
             <div class="bank-account-container">
                 <div class="bank-account-section" id="bank-account-title">
                     <h1>Bank Account</h1>
@@ -81,10 +63,6 @@
                     <span class="account-money">$<%= user.chequing + user.savings %>.00</span>
                 </div>
                 
-            </div>
-
-            <div class="bank-card">
-    
             </div>
         </div>
     </div>

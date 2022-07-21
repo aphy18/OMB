@@ -277,19 +277,30 @@ app.get('/jobs', async (req, res) => {
     }
 })
 
-
-app.get('/jobs/:job_name/:id', async (req,res) => {
+app.get('/apply/:job_id', async(req,res) => {
     try {
+        let reqParams = req.params.job_id;
         let user = req.session.user;
-        if (!user) {
-            res.redirect('/login')
-        } else {
-            res.render('work')
-        }
+        let getJobInfo = await pool.query('SELECT job.*, user_id FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job.id = $1 AND person.id = $2', [reqParams, user.id]);
+        console.log(getJobInfo.rows)
     } catch (err) {
         console.log(err.message)
     }
 })
+
+
+// app.get('/jobs/:job_name/:id', async (req,res) => {
+//     try {
+//         let user = req.session.user;
+//         if (!user) {
+//             res.redirect('/login')
+//         } else {
+//             res.render('work')
+//         }
+//     } catch (err) {
+//         console.log(err.message)
+//     }
+// })
 
 
 app.get('/logout', (req,res) => {

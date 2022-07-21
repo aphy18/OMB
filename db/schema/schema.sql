@@ -10,7 +10,8 @@ CREATE TABLE person (
     last_name VARCHAR(50) NOT NULL,
     card_number INTEGER NOT NULL,
     user_password VARCHAR(50) NOT NULL,
-    is_employed BOOLEAN NOT NULL
+    is_employed BOOLEAN NOT NULL,
+    job_count INTEGER NOT NULL
 );
 
 CREATE TABLE expenses (

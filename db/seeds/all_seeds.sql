@@ -1,7 +1,7 @@
-INSERT INTO person (first_name, last_name, card_number, user_password, is_employed)
+INSERT INTO person (first_name, last_name, card_number, user_password, is_employed, job_count)
 
-VALUES ('Aphason','Aberham', 123456789, '1234', false),
-('Ben','Simmons', 444111222, '1234', false);
+VALUES ('Aphason','Aberham', 123456789, '1234', false, 0),
+('Ben','Simmons', 444111222, '1234', false, 0);
 
 INSERT INTO expenses(expense_name, price, image_src)
 
@@ -25,13 +25,14 @@ VALUES ('Flower Caretaker', 'Sell a variety of different flowers to customers, n
 
 INSERT INTO job_application(question_1, question_2, question_3, hired, job_id, user_id)
 
-VALUES ('a','b','c',false, 1, 1),
-('a','b','c',true, 2, 1),
-('a','b','c',false, 3, 1),
+VALUES ('Do you have any experience working in a flower shop ?','Why do you want to work here ?','Any special skills ?', false, 1, 1),
+('Do you have any experience working in a fast food establishment ?','Why do you want to work here ?','Any special skills ?', false, 2, 1),
+('Do you have any experience working in a day camp ?','Why do you want to work here ?','Any special skills ?', false, 3, 1),
 
 
-('a','b','c', true, 1, 2),
-('a','b','c', true, 2, 2),
-('a','b','c', true, 3, 2);
+('Do you have any experience working in a flower shop ?', 'Why do you want to work here ?','Any special skills ?', false, 1, 2),
+('Do you have any experience working in a fast food establishment ?','Why do you want to work here ?','Any special skills ?', false, 2, 2),
+('Do you have any experience working in a day camp ?','Why do you want to work here ?','Any special skills ?', false, 3, 2);
+
 
 
