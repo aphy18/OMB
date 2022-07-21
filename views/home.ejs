@@ -50,15 +50,15 @@
                 <div class="bank-account-section" id="bank-account-title">
                     <h1>Bank Account</h1>
                 </div>
-                <div class="bank-account-section">
+                <div class="bank-account-section" id="bank-account-chequing">
                     <span class="account-name">Chequing</span>
                     <span class="account-money">$<%= user.chequing %>.00</span>
                 </div>
-                <div class="bank-account-section">
+                <div class="bank-account-section" id="bank-account-savings">
                     <span class="account-name">Savings</span>
                     <span class="account-money">$<%= user.savings %>.00</span>
                 </div>
-                <div class="bank-account-section">
+                <div class="bank-account-section" id="bank-account-total">
                     <span class="account-name">Total</span>
                     <span class="account-money">$<%= user.chequing + user.savings %>.00</span>
                 </div>
@@ -66,6 +66,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        let homeHeader = document.querySelector('.home-header');
+        let moneyOnHand = document.querySelector('.money-on-hand');
+        let bankingContainer = document.querySelector('.bank-account-container');
+        
+        window.addEventListener('load', () => {
+            homeHeader.style.transform = 'translateY(20px)';
+            homeHeader.style.opacity = 1;
+
+            setTimeout(() => {
+                moneyOnHand.style.transform = 'translateX(10px)';
+                moneyOnHand.style.opacity = 1;
+            }, 800)
+
+            setTimeout(() => {
+                bankingContainer.style.transform = 'translateY(-20px)';
+                bankingContainer.style.opacity = 1;
+            }, 1500)
+
+        })
+
+        
+
+
+    </script>
     
 
 

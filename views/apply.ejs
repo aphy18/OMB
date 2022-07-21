@@ -7,6 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1><%= jobInfo.job_name %> Application</h1>
+    <form action="/apply/<%= jobInfo.job_id %>" method="POST" class="job-application">
+        <label for="question-1"><%= jobInfo.question_1 %></label>
+        <select name="question-1" id="question-1">
+            <option value="answer-1">I have a lot of experience</option>
+            <option value="answer-2">I have some experience</option>
+            <option value="answer-3">I have no experience</option>
+        </select>
+
+        <label for="question-2"><%= jobInfo.question_2 %></label>
+        <input type="text" name="question-2" id="question-2" required>
+
+
+        <button class="apply-button">Submit Application</button>
+    </form>
+
+
+    <script>
+        let job = document.querySelector('.job-application')
+        job.addEventListener('submit', () => {
+            alert('derp')
+        })
+    </script>
 </body>
 </html>

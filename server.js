@@ -281,8 +281,10 @@ app.get('/apply/:job_id', async(req,res) => {
     try {
         let reqParams = req.params.job_id;
         let user = req.session.user;
-        let getJobInfo = await pool.query('SELECT job.*, user_id FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job.id = $1 AND person.id = $2', [reqParams, user.id]);
-        console.log(getJobInfo.rows)
+        let getJobInfo = await pool.query('SELECT job_application.*, job.id, job.job_name, user_id FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job.id = $1 AND person.id = $2', [reqParams, user.id]);
+        let jobInfo = getJobInfo.rows[0]
+        console.log('job info -->', jobInfo)
+        res.render('apply', { jobInfo })
     } catch (err) {
         console.log(err.message)
     }
