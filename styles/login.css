@@ -54,7 +54,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    background-color: var(--text-color);
+    /* background-color: var(--text-color); */
 }
 
 .form-left-side {
@@ -96,7 +96,8 @@
     font-style: italic;
     padding: 0px 50px;
     transform: scaleY(0);
-    transition: transform 0.8s ease;
+    opacity: 0;
+    transition: transform 0.55s ease-out, opacity 1s ease;
 }
 
 .login-description {
