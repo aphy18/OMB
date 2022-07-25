@@ -20,6 +20,7 @@
         <h1 class="login-header">Online Money Banker <i class="fa-solid fa-mug-hot" id="header-mug"></i></h1>
 
         <form action="/login" class="login-form" method="POST">
+
             <div class="form-left-side">
                 <div class="card-number-container">
                     <label for="login-card-number" id="card-label">Card Number:</label>
@@ -49,7 +50,8 @@
             let login = document.querySelector('.login-header')
             let qsa = (el) => document.querySelectorAll(el);
             let allDescriptions = qsa('.login-description');
-            let allDescriptionsArray = Array.from(allDescriptions)
+            let allDescriptionsArray = Array.from(allDescriptions);
+            let formRight = document.querySelector('.form-right-side')
 
             let loginTitle = 'Online Money Banker'
             let d1Sentence = 'Keep Cash on Hand';
@@ -58,7 +60,9 @@
             let d4Sentence = 'Work to Earn';
             let d5Sentence = 'Better State of Mind';
 
-           
+           window.addEventListener('load', () => {
+                formRight.style.transform = 'scaleY(1)';
+           })
             
         
 
@@ -84,7 +88,7 @@
                                 loopOverText(3, d4Sentence)
                                 setTimeout(() => {
                                     loopOverText(4, d5Sentence)
-                                }, 1000)
+                                }, 900)
                             }, 1200)
                         }, 1700)
                     }, 1200)

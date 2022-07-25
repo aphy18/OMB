@@ -7,6 +7,7 @@
     justify-content: space-evenly;
     align-items: center;
     font-family: Heebo;
+    /* background-color: rgb(252, 196, 196); */
 }
 
 h1 {
@@ -14,9 +15,9 @@ h1 {
 }
 
 .home-header {
-    width: 30%;
-    height: 100px;
-    font-size: 60px;
+    width: 50%;
+    height: 150px;
+    font-size: 70px;
     /* border: 2px solid black; */
     display: flex;
     justify-content: center;
@@ -24,11 +25,12 @@ h1 {
     transform: translateY(-45px);
     opacity: 0;
     transition: transform 0.6s ease, opacity 0.6s ease;
+    color: rgb(207, 52, 52);
 }
 
 
 .banking-info-container {
-    border: 2px solid red;
+    border: 2px solid black;
     width: 95%;
     height: 900px;
     display: flex;
@@ -50,6 +52,7 @@ h1 {
     transform: translateX(-90px);
     opacity: 0;
     transition: transform 0.6s ease, opacity 1s ease;
+    color: rgb(207, 52, 52);
 }
 
 
