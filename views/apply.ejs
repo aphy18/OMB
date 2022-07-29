@@ -10,14 +10,25 @@
     <h1><%= jobInfo.job_name %> Application</h1>
     <form action="/apply/<%= jobInfo.job_id %>" method="POST" class="job-application">
         <label for="question-1"><%= jobInfo.question_1 %></label>
-        <select name="question-1" id="question-1">
-            <option value="answer-1">I have a lot of experience</option>
-            <option value="answer-2">I have some experience</option>
-            <option value="answer-3">I have no experience</option>
+        <select name="questionOne" id="question-1">
+            <option value="good-answer">I have a lot of experience</option>
+            <option value="standard-answer">I have some experience</option>
+            <option value="bad-answer">I have no experience</option>
         </select>
 
         <label for="question-2"><%= jobInfo.question_2 %></label>
-        <input type="text" name="question-2" id="question-2" required>
+        <select name="questionTwo" id="question-2">
+            <option value="good-answer">I am available anytime</option>
+            <option value="standard-answer">I am available sometimes</option>
+            <option value="bad-answer">I am rarely available</option>
+        </select>
+
+        <label for="question-3"><%= jobInfo.question_3 %></label>
+        <select name="questionThree" id="question-3">
+            <option value="good-answer">I am fully dedicated to learning a new work system</option>
+            <option value="standard-answer">I am somewhat prepared to learn a new work system</option>
+            <option value="bad-answer">I am reluctant to learn a new work system</option>
+        </select>
 
 
         <button class="apply-button">Submit Application</button>

@@ -290,6 +290,23 @@ app.get('/apply/:job_id', async(req,res) => {
     }
 })
 
+app.post('/apply/:job_id', async(req,res) => {
+    try {
+        let user = req.session.user;
+        let jobID = req.params.job_id;
+        console.log('job id -->', jobID)
+        let { questionOne, questionTwo, questionThree } = req.body;
+        if (questionOne === 'bad-answer' || questionTwo === 'bad-answer' || questionThree === 'bad-answer') {
+            res.redirect('/jobs')
+        } else {
+            await pool.query('UPDATE job_application SET hired = $1 WHERE user_id = $2 AND job_id = $3', [true, user.id, jobID])
+            res.redirect('/jobs')
+        }
+    } catch(err) {
+        console.log(err.message)
+    }
+})
+
 
 // app.get('/jobs/:job_name/:id', async (req,res) => {
 //     try {
