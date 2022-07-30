@@ -255,7 +255,7 @@ app.get('/jobs', async (req, res) => {
         if (!user) {
             res.redirect('/login')
         } else {
-            let jobs = await pool.query('SELECT * FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job_application.user_id = $1', [user.id])
+            let jobs = await pool.query('SELECT job_application.*, job.*, person.id, person.job_count FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job_application.user_id = $1', [user.id])
             let getJobs = jobs.rows
             let ApplyButton = {};
 
@@ -270,6 +270,7 @@ app.get('/jobs', async (req, res) => {
             }
             
             // console.log('jobs ->', jobs.rows)
+            console.log('session -->', user)
             res.render("jobs", { getJobs })
         }
     } catch (err) {
@@ -290,8 +291,9 @@ app.post('/jobs', async(req,res) => {
 
         let jobID = arr[0];
 
-
+        user.job_count = user.job_count--;
         await pool.query('UPDATE job_application SET hired = $1 WHERE job_id = $2 AND user_id = $3', [false, jobID, user.id])
+        await pool.query('UPDATE person SET job_count = $1 WHERE person.id = $2', [user.job_count--, user.id])
         res.redirect('/jobs')
 
     } catch (err) {
@@ -303,10 +305,17 @@ app.get('/apply/:job_id', async(req,res) => {
     try {
         let reqParams = req.params.job_id;
         let user = req.session.user;
-        let getJobInfo = await pool.query('SELECT job_application.*, job.id, job.job_name, user_id FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job.id = $1 AND person.id = $2', [reqParams, user.id]);
-        let jobInfo = getJobInfo.rows[0]
-        console.log('job info -->', jobInfo)
-        res.render('apply', { jobInfo })
+
+        if (user.job_count >= 2) {
+            res.send('You can not work more than 2 jobs');
+        } else {
+            let getJobInfo = await pool.query('SELECT job_application.*, job.id, job.job_name, person.job_count, person.id FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job.id = $1 AND person.id = $2', [reqParams, user.id]);
+            let jobInfo = getJobInfo.rows[0]
+            console.log('apply page query -->', jobInfo)
+            res.render('apply', { jobInfo })
+        }
+
+
     } catch (err) {
         console.log(err.message)
     }
@@ -317,11 +326,13 @@ app.post('/apply/:job_id', async(req,res) => {
         let user = req.session.user;
         let jobID = req.params.job_id;
         console.log('job id -->', jobID)
-        let { questionOne, questionTwo, questionThree } = req.body;
+        let { questionTwo, questionThree } = req.body;
         if (questionTwo === 'bad-answer' || questionThree === 'bad-answer') {
             res.redirect('/jobs')
         } else {
-            await pool.query('UPDATE job_application SET hired = $1 WHERE user_id = $2 AND job_id = $3', [true, user.id, jobID])
+            user.job_count = user.job_count++;
+            await pool.query('UPDATE job_application SET hired = $1 WHERE user_id = $2 AND job_id = $3', [true, user.id, jobID]);
+            await pool.query('UPDATE person SET job_count = $1', [user.job_count++]);
             res.redirect('/jobs')
         }
     } catch(err) {
@@ -332,19 +343,6 @@ app.post('/apply/:job_id', async(req,res) => {
 app.get('/jobs/:job_name/:job_id', async(req,res) => {
     res.send('hello')
 })
-
-// app.get('/jobs/:job_name/:id', async (req,res) => {
-//     try {
-//         let user = req.session.user;
-//         if (!user) {
-//             res.redirect('/login')
-//         } else {
-//             res.render('work')
-//         }
-//     } catch (err) {
-//         console.log(err.message)
-//     }
-// })
 
 
 app.get('/logout', (req,res) => {
