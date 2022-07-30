@@ -144,6 +144,7 @@
     background-color: var(--text-color);
     margin-right: 100px;
     border: 2px solid white;
+    transition: background-color 0.2s ease;
 }
 
 .login-button:hover {

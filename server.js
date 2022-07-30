@@ -269,9 +269,31 @@ app.get('/jobs', async (req, res) => {
                 getJobs[i].apply = ApplyButton[`btn-${i}`]
             }
             
-            console.log('jobs ->', jobs.rows)
+            // console.log('jobs ->', jobs.rows)
             res.render("jobs", { getJobs })
         }
+    } catch (err) {
+        console.log(err.message)
+    }
+})
+
+app.post('/jobs', async(req,res) => {
+    try {
+        let reqBody = req.body;
+        let user = req.session.user;
+        let arr = [];
+
+        for (let key in reqBody) {
+            arr.push(key);
+            arr.push(reqBody[key])
+        }
+
+        let jobID = arr[0];
+
+
+        await pool.query('UPDATE job_application SET hired = $1 WHERE job_id = $2 AND user_id = $3', [false, jobID, user.id])
+        res.redirect('/jobs')
+
     } catch (err) {
         console.log(err.message)
     }
@@ -296,7 +318,7 @@ app.post('/apply/:job_id', async(req,res) => {
         let jobID = req.params.job_id;
         console.log('job id -->', jobID)
         let { questionOne, questionTwo, questionThree } = req.body;
-        if (questionOne === 'bad-answer' || questionTwo === 'bad-answer' || questionThree === 'bad-answer') {
+        if (questionTwo === 'bad-answer' || questionThree === 'bad-answer') {
             res.redirect('/jobs')
         } else {
             await pool.query('UPDATE job_application SET hired = $1 WHERE user_id = $2 AND job_id = $3', [true, user.id, jobID])
@@ -307,6 +329,9 @@ app.post('/apply/:job_id', async(req,res) => {
     }
 })
 
+app.get('/jobs/:job_name/:job_id', async(req,res) => {
+    res.send('hello')
+})
 
 // app.get('/jobs/:job_name/:id', async (req,res) => {
 //     try {

@@ -34,10 +34,24 @@
     align-items: center;
 }
 
-.job-button {
+.apply-button,
+.work-button,
+.quit-button {
     margin: 7px;
     width: 70px;
     height: 40px;
-    border: 2px solid rgb(72, 72, 199);
+    /* border: 2px solid rgb(72, 72, 199); */
     border-radius: 5px;
+    color: white;
+}
+
+.apply-button,
+.work-button {
+    background-color: green;
+    border: 2px solid green;
+}
+
+.quit-button {
+    background-color: red;
+    border: 2px solid red;
 }
