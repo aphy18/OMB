@@ -5,10 +5,10 @@ VALUES ('Aphason','Aberham', 123456789, '1234', false, 0),
 
 INSERT INTO expenses(expense_name, price, image_src)
 
-VALUES ('medical bills', 800, 'medical.jpg'),
-('rent', 500, 'house.jpg'),
+VALUES ('medical bills', 500, 'medical.jpg'),
+('rent', 100, 'house.jpg'),
 ('electricity', 200, 'lightbulb.jpg'),
-('tuition', 3000, 'textbooks.jpeg');
+('tuition', 100, 'textbooks.jpeg');
 
 INSERT INTO account (chequing, savings, money_on_hand, user_id)
 

@@ -340,10 +340,50 @@ app.post('/apply/:job_id', async(req,res) => {
     }
 })
 
-app.get('/jobs/:job_name/:job_id', async(req,res) => {
-    res.send('hello')
+app.get('/work/:job_id', async(req,res) => {
+    try {
+        console.log('get params -->', req.params)
+        const { job_id } = req.params;
+
+        let getJobInfo = await pool.query('SELECT salary, shift FROM job WHERE id = $1', [job_id]);
+        let jobInfo = getJobInfo.rows[0]
+
+        console.log('job info -->', jobInfo)
+
+        if (parseInt(job_id) === 1) {
+            res.render('flowershop', { jobInfo } )
+        }
+
+    } catch (err) {
+        console.log(err.message)
+    }
+
 })
 
+app.post('/work/:job_id', async(req,res) => {
+    try {  
+        let user = req.session.user;
+        let reqBody = req.body;
+        let compensation;
+
+        for (let key in reqBody) {
+            compensation = parseInt(key * reqBody[key])
+        }
+
+        console.log('compensation -->', compensation)
+        console.log('req session', req.session)
+
+        user.savings += compensation;
+
+        await pool.query('UPDATE account SET savings = $1 WHERE user_id = $2', [user.savings += compensation, user.id]);
+
+        res.redirect('/')
+
+
+    } catch (err) {
+        console.log(err.message)
+    }
+})
 
 app.get('/logout', (req,res) => {
     req.session.user = null;

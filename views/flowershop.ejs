@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/flowershop.css">
+</head>
+<body>
+    <style>
+        body {
+            border: 2px solid black;
+            margin: 0;
+            height: 1000px;
+            width: 100%;
+            background-image: url(../images/flower.jpg);
+            background-size: cover;
+        }
+
+        /* body::after {
+            content: '';
+            width: 400px;
+            height: 1000px;
+            background-color: red;
+            opacity: 0.4;
+            border: 2px solid blue;
+            display: inline-block;
+        } */
+    </style>
+
+    
+
+    <form class="work-form" action="/work/:job_id" method="POST">
+
+        <p><%= jobInfo.salary %> / hour</p>
+        <p><%= jobInfo.shift %> hour shift</p>
+
+        <div class="flower-shop-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
+         Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
+        Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
+         </div>
+
+        <div class="flower-shop-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
+        Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
+        Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
+        </div>
+
+        <div class="flower-shop-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
+            Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
+            Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
+        </div>
+
+        <button name="<%= jobInfo.shift %>" value="<%= jobInfo.salary %>">Finish Shift</button>
+
+    </form>
+
+</body>
+</html>
