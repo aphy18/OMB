@@ -46,3 +46,4 @@ CREATE TABLE job_application (
     job_id INTEGER REFERENCES job(id) ON DELETE CASCADE,
     user_id INTEGER REFERENCES person(id) ON DELETE CASCADE
 );
+

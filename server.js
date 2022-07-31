@@ -370,14 +370,12 @@ app.post('/work/:job_id', async(req,res) => {
             compensation = parseInt(key * reqBody[key])
         }
 
+        console.log('savings -->', user.savings)
         console.log('compensation -->', compensation)
-        console.log('req session', req.session)
-
-        user.savings += compensation;
 
         await pool.query('UPDATE account SET savings = $1 WHERE user_id = $2', [user.savings += compensation, user.id]);
 
-        res.redirect('/')
+        res.redirect('/jobs')
 
 
     } catch (err) {
