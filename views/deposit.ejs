@@ -5,27 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles/bankingOptions.css">
 </head>
 <body>
 
     <%- include('partials/nav.ejs') %>
 
-    <style>
-        body {
-    margin: 0;
-    border: 2px solid black;
-    height: 800px;
-}
+ 
  </style>
-    <form action="/deposit" method="POST">
-        <label for="select-deposit">Select Account</label>
-        <select name="account" id="select-deposit">
-            <option value="chequing">Chequing</option>
-            <option value="savings">Savings</option>
-        </select>
-        <label for="select-amount"></label>
-        <input type="text" id="select-amount" name="amount" required>
-        <button type="submit">Deposit</button>
+    
+<div class="banking-option-container">
+    <form action="/deposit" method="POST" class="banking-option-form">
+        <p>Paragraph</p>
+        <div class="sub-banking-option-container">
+            <div class="account-selection">
+                <label for="select-deposit">Select Account: </label>
+                <select name="account" id="select-deposit">
+                    <option value="chequing">Chequing</option>
+                    <option value="savings">Savings</option>
+                </select>
+            </div>
+            <div class="amount-selection">
+                <label for="select-amount">Amount to Transfer: </label>
+                <input type="text" id="select-amount" name="amount" required>
+            </div>
+            <button type="submit">Deposit</button>
+        </div>
     </form>
+</div>
+    
 </body>
 </html>

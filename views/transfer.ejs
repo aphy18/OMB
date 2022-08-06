@@ -5,17 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles/bankingOptions.css">
 </head>
 <body>
 
     <%- include('partials/nav.ejs') %>
 
-    <style>
-        body {
-    margin: 0;
-    border: 2px solid black;
-    }
-    </style>
     
     <form action="/transfer" method="POST">
         <label for="first-account">Transfer From:</label>
