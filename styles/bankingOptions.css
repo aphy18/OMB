@@ -24,10 +24,12 @@ body {
     
 }
 
-.deposit-sentence {
+.deposit-sentence,
+.withdrawal-sentence,
+.transfer-sentence {
     font-size: 40px;
     /* border: 2px solid black; */
-    width: 250px;
+    width: 350px;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -43,6 +45,19 @@ body {
     align-items: center;
 }
 
+#transfer-sub-container {
+    width: 100%;
+}
+.transfer-div,
+.amount-div {
+    /* border: 2px solid black; */
+    width: 50%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .account-selection,
 .amount-selection {
     border: 2px solid blue;
@@ -54,7 +69,14 @@ body {
     font-size: 28px;
 }
 
-#select-deposit,
+#transfer-account-selection {
+    width: 50%;
+    justify-content: space-around;
+}
+
+#first-account,
+#second-account,
+.select-deposit,
 .amount-selection input {
     font-size: 19px;
     margin: 8px;

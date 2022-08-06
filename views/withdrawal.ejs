@@ -11,16 +11,40 @@
 
     <%- include('partials/nav.ejs') %>
 
- 
-    <form action="/withdrawal" method="POST">
-        <label for="select-deposit">Select Account</label>
-        <select name="account" id="select-deposit">
-            <option value="chequing">Chequing</option>
-            <option value="savings">Savings</option>
-        </select>
-        <label for="select-amount"></label>
-        <input type="text" id="select-amount" name="amount" required>
-        <button type="submit">Withdrawal</button>
+
+<div class="banking-option-container">
+    <form action="/withdrawal" method="POST" class="banking-option-form">
+        <p class="withdrawal-sentence"></p>
+        <div class="sub-banking-option-container">
+            <div class="account-selection">
+                <label for="select-deposit">Select Account: </label>
+                <select name="account" class="select-deposit">
+                    <option value="chequing">Chequing</option>
+                    <option value="savings">Savings</option>
+                </select>
+            </div>
+            <div class="amount-selection">
+                <label for="select-amount">Amount to Withdrawal: </label>
+                <input type="text" id="select-amount" name="amount" required>
+            </div>
+            <button type="submit" class="banking-option-button">Withdrawal</button>
+        </div>
     </form>
+</div>
+
+<script>
+    let withdrawalSentence = document.querySelector('.withdrawal-sentence');
+    let withdrawal = 'Withdrawal Money';
+
+    setTimeout(() => {
+        for (let i=0; i < withdrawal.length; i++) {
+            setTimeout(() => {
+                withdrawalSentence.innerHTML += withdrawal[i]
+            }, i * 125)
+        }
+    }, 1000)
+</script>
+
+    
 </body>
 </html>

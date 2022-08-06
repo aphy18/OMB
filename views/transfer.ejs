@@ -11,21 +11,47 @@
 
     <%- include('partials/nav.ejs') %>
 
+    <div class="banking-option-container">
+        <form action="/transfer" method="POST" class="banking-option-form">
+            <p class="transfer-sentence"></p>
+            <div class="sub-banking-option-container" id="transfer-sub-container">
+                <div class="account-selection" id="transfer-account-selection">
+                    <div class="transfer-div">
+                        <label for="first-account">Transfer From:</label>
+                        <select name="from" id="first-account" required>
+                            <option value="chequing">Chequing (<%= user.chequing %>)</option>
+                            <option value="savings">Saving (<%= user.savings %>)</option>
+                        </select>
+                    </div>
+                    <div class="amount-div">
+                        <label for="second-account">To:</label>
+                        <select name="to" id="second-account" required>
+                            <option value="chequing">Chequing (<%= user.chequing %>)</option>
+                            <option value="savings">Saving (<%= user.savings %>)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="amount-selection">
+                    <label for="amount">Amount:</label>
+                    <input type="text" name="amount" id="amount" required>
+                </div>
+                <button type="submit" class="banking-option-button">Submit</button>
+            </div>
+        </form>   
+    </div>
+
+    <script>
+        let transferSentence = document.querySelector('.transfer-sentence');
+        let transfer = 'Transfer Money';
+
+        setTimeout(() => {
+            for (let i=0; i < transfer.length; i++) {
+                setTimeout(() => {
+                    transferSentence.innerHTML += transfer[i]
+                }, i * 125)
+            }
+        }, 1000)
+    </script>
     
-    <form action="/transfer" method="POST">
-        <label for="first-account">Transfer From:</label>
-        <select name="from" id="first-account" required>
-            <option value="chequing">Chequing (<%= user.chequing %>)</option>
-            <option value="savings">Saving (<%= user.savings %>)</option>
-        </select>
-        <label for="second-account">To:</label>
-        <select name="to" id="second-account" required>
-            <option value="chequing">Chequing (<%= user.chequing %>)</option>
-            <option value="savings">Saving (<%= user.savings %>)</option>
-        </select>
-        <label for="amount">Amount:</label>
-        <input type="text" name="amount" id="amount" required>
-        <button type="submit">Submit</button>
-    </form>
 </body>
 </html>
