@@ -291,7 +291,6 @@ app.post('/jobs', async(req,res) => {
 
         let jobID = arr[0];
 
-        user.job_count = user.job_count--;
         await pool.query('UPDATE job_application SET hired = $1 WHERE job_id = $2 AND user_id = $3', [false, jobID, user.id])
         await pool.query('UPDATE person SET job_count = $1 WHERE person.id = $2', [user.job_count--, user.id])
         res.redirect('/jobs')
@@ -330,7 +329,6 @@ app.post('/apply/:job_id', async(req,res) => {
         if (questionTwo === 'bad-answer' || questionThree === 'bad-answer') {
             res.redirect('/jobs')
         } else {
-            user.job_count = user.job_count++;
             await pool.query('UPDATE job_application SET hired = $1 WHERE user_id = $2 AND job_id = $3', [true, user.id, jobID]);
             await pool.query('UPDATE person SET job_count = $1', [user.job_count++]);
             res.redirect('/jobs')
@@ -352,6 +350,8 @@ app.get('/work/:job_id', async(req,res) => {
 
         if (parseInt(job_id) === 1) {
             res.render('flowershop', { jobInfo } )
+        } else if (parseInt(job_id) === 2) {
+            res.render('burgerfactory', { jobInfo })
         }
 
     } catch (err) {

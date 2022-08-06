@@ -1,4 +1,4 @@
-INSERT INTO person (first_name, last_name, card_number, user_password, is_employed)
+INSERT INTO person (first_name, last_name, card_number, user_password, is_employed, job_count)
 
 VALUES ('Aphason','Aberham', 123456789, '1234', false, 0),
 ('Ben','Simmons', 444111222, '1234', false, 0);

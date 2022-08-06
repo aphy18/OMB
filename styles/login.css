@@ -2,7 +2,7 @@
     --text-color: rgb(206, 77, 77);
     --input-field: rgb(255, 255, 255);
     --hover: rgb(180, 44, 44);
-    --form: rgb(243, 214, 214);
+    --form: rgb(252, 196, 196);
 }
 
 
@@ -89,7 +89,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(252, 196, 196);
+    background-color: var(--form);
     border-radius: 0px 10px 10px 0px;
     font-family: Ibarra Real Nova;
     font-weight: 400;
@@ -144,9 +144,11 @@
     background-color: var(--text-color);
     margin-right: 100px;
     border: 2px solid white;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .login-button:hover {
-    background-color: var(--hover);
+    background-color: var(--form);
+    color: black;
+    border-color: var(--form);
 }
