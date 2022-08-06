@@ -291,8 +291,9 @@ app.post('/jobs', async(req,res) => {
 
         let jobID = arr[0];
 
+        user.job_count--;
         await pool.query('UPDATE job_application SET hired = $1 WHERE job_id = $2 AND user_id = $3', [false, jobID, user.id])
-        await pool.query('UPDATE person SET job_count = $1 WHERE person.id = $2', [user.job_count--, user.id])
+        await pool.query('UPDATE person SET job_count = $1 WHERE person.id = $2', [user.job_count, user.id])
         res.redirect('/jobs')
 
     } catch (err) {
@@ -330,7 +331,8 @@ app.post('/apply/:job_id', async(req,res) => {
             res.redirect('/jobs')
         } else {
             await pool.query('UPDATE job_application SET hired = $1 WHERE user_id = $2 AND job_id = $3', [true, user.id, jobID]);
-            await pool.query('UPDATE person SET job_count = $1 WHERE id = $2', [user.job_count++, user.id]);
+            user.job_count++;
+            await pool.query('UPDATE person SET job_count = $1 WHERE id = $2', [user.job_count, user.id]);
             res.redirect('/jobs')
         }
     } catch(err) {
