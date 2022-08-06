@@ -16,7 +16,7 @@
     
 <div class="banking-option-container">
     <form action="/deposit" method="POST" class="banking-option-form">
-        <p>Paragraph</p>
+        <p class="deposit-sentence"></p>
         <div class="sub-banking-option-container">
             <div class="account-selection">
                 <label for="select-deposit">Select Account: </label>
@@ -26,13 +26,26 @@
                 </select>
             </div>
             <div class="amount-selection">
-                <label for="select-amount">Amount to Transfer: </label>
+                <label for="select-amount">Amount to Deposit: </label>
                 <input type="text" id="select-amount" name="amount" required>
             </div>
-            <button type="submit">Deposit</button>
+            <button type="submit" class="banking-option-button">Deposit</button>
         </div>
     </form>
 </div>
+
+        <script>
+            let depositSentence = document.querySelector('.deposit-sentence');
+            let deposit = 'Deposit Money'
+
+            setTimeout(() => {
+                for (let i=0; i < deposit.length; i++) {
+                    setTimeout(() => {
+                        depositSentence.innerHTML += deposit[i]
+                    }, i * 150)
+                }
+            }, 1000)
+        </script>
     
 </body>
 </html>
