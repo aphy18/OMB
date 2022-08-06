@@ -330,7 +330,7 @@ app.post('/apply/:job_id', async(req,res) => {
             res.redirect('/jobs')
         } else {
             await pool.query('UPDATE job_application SET hired = $1 WHERE user_id = $2 AND job_id = $3', [true, user.id, jobID]);
-            await pool.query('UPDATE person SET job_count = $1', [user.job_count++]);
+            await pool.query('UPDATE person SET job_count = $1 WHERE id = $2', [user.job_count++, user.id]);
             res.redirect('/jobs')
         }
     } catch(err) {

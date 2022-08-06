@@ -34,18 +34,18 @@
         </form>
     </div>
 
-<script>
-    let depositSentence = document.querySelector('.deposit-sentence');
-    let deposit = 'Deposit Money';
+    <script>
+        let depositSentence = document.querySelector('.deposit-sentence');
+        let deposit = 'Deposit Money';
 
-    setTimeout(() => {
-        for (let i=0; i < deposit.length; i++) {
-            setTimeout(() => {
-                depositSentence.innerHTML += deposit[i]
-            }, i * 125)
-        }
-    }, 1000)
-</script>
-    
+        setTimeout(() => {
+            for (let i=0; i < deposit.length; i++) {
+                setTimeout(() => {
+                    depositSentence.innerHTML += deposit[i]
+                }, i * 125)
+            }
+        }, 1000)
+    </script>
+        
 </body>
 </html>

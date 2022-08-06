@@ -45,6 +45,8 @@ body {
     align-items: center;
 }
 
+
+#withdrawal-sub-container,
 #transfer-sub-container {
     width: 100%;
 }
@@ -67,6 +69,10 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 28px;
+}
+
+#withdrawal-amount-selection {
+    width: 50%;
 }
 
 #transfer-account-selection {
