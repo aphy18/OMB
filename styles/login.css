@@ -150,5 +150,5 @@
 .login-button:hover {
     background-color: var(--form);
     color: black;
-    border-color: var(--form);
+    border-color: black;
 }
