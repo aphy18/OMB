@@ -21,6 +21,7 @@ app.use(cookieSession({
 // this means using the /styles route in reference from the root directory, then specifying the folder name
 app.use('/styles', express.static('styles'));
 app.use('/images', express.static('images'))
+app.use('/scripts', express.static('scripts'))
 
 app.set('view engine', 'ejs');
 
