@@ -14,7 +14,18 @@
     width: 70%;
     background-color: white;
     font-size: 25px;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
     
+}
+
+#paragraph-1,
+#paragraph-3 {
+    transform: translateX(-50px);
+}
+
+#paragraph-2 {
+    transform: translateX(50px);
 }
 
 .work-description {
@@ -25,6 +36,7 @@
     font-size: 20px;
     text-align: center;
 }
+
 
 
 

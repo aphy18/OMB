@@ -3,18 +3,21 @@ let workParagraphArray = Array.from(workParagraph);
 
 let workButtonNext = document.querySelector('.work-button-next');
 let workButtonPrev = document.querySelector('.work-button-prev');
+let finishWorkButton = document.querySelector('.finish-work-button');
 
-let tracker = 0;
+let counter=0;
 
 
 
 workButtonNext.addEventListener('click', () => {
-    if (tracker < 3) {
-        tracker++;
-        console.log('tracker -->', tracker)
+    if (counter < 3) {
+        counter++;
+        console.log('counter -->', counter)
+
+
         for (let i=0; i < workParagraphArray.length; i++) {
-            if (tracker === i + 1) {
-                console.log(`work paragraph ${i + 1} -->`, workParagraphArray[i])
+            if (counter >= i + 1) {
+                workParagraphArray[i].style.opacity = 1;
             }
         }
     }
@@ -23,12 +26,12 @@ workButtonNext.addEventListener('click', () => {
 
 
 workButtonPrev.addEventListener('click', () => {
-    if (tracker > 0) {
-        tracker--;
-        console.log('tracker -->', tracker)
+    if (counter >= 1) {
+        counter--;
+        console.log('counter -->', counter)
         for (let i=0; i < workParagraphArray.length; i++) {
-            if (tracker === i + 1) {
-                console.log(`work paragraph ${i + 1} -->`, workParagraphArray[i])
+            if (counter < i + 1) {
+                workParagraphArray[i].style.opacity = 0;
             }
         }
     }
