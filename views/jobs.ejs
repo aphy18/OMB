@@ -38,15 +38,14 @@
                 </article>
                 <div class="job-footer">
                 <% if (!job.apply) { %>
-                    <button class='apply-button' disabled>Apply</button>
+                    <button class="apply-button" id="disabled-button" disabled>Apply</button>
                     <a href="/work/<%=job.job_id%>"><button class='work-button'>Work</button></a>
                     <form action="/jobs" method="POST">
                         <a href="/jobs"><button class='quit-button' type="submit" name="<%= job.job_id %>" value="<%= job.job_name %>">Quit</button></a>
                     </form>
                 <% } else { %>
                     <a href="/apply/<%= job.job_id %>"><button class='apply-button'>Apply</button></a>
-                    <button class='work-button' disabled>Work</button>
-                    <button class='quit-button' disabled>Quit</button>
+                    <button class='work-button' id="disabled-button" disabled>Work</button>
                 <% } %>
                 </div>
             </div>

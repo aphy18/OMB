@@ -66,4 +66,14 @@
 .quit-button:hover {
     background-color: rgb(180, 44, 44);
     border-color: rgb(180, 44, 44);
+    
+}
+
+#disabled-button {
+    opacity: 0.4;
+}
+
+#disabled-button:hover {
+    background-color: rgb(206, 77, 77);
+    border: 2px solid rgb(206, 77, 77);
 }

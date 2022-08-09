@@ -168,10 +168,13 @@ app.post('/transfer', async(req,res) => {
 
 app.get('/deposit', async (req,res) => {
     let user = req.session.user;
+    let account = await pool.query('SELECT chequing, savings FROM account WHERE user_id = $1', [user.id])
+    let getAccount = account.rows[0];
+    console.log(getAccount)
     if (!user) {
         res.redirect('/login')
     } else {
-        res.render('deposit')
+        res.render('deposit', { getAccount })
     }
 })
 
@@ -208,10 +211,12 @@ app.post('/deposit', async (req,res) => {
 
 app.get('/withdrawal', async (req,res) => {
     let user = req.session.user;
+    let account = await pool.query('SELECT chequing, savings FROM account WHERE user_id = $1', [user.id])
+    let getAccount = account.rows[0];
     if (!user) {
         res.redirect('/login')
     } else {
-        res.render('withdrawal')  
+        res.render('withdrawal', { getAccount })  
     } 
 })
 
