@@ -19,15 +19,17 @@
             background-size: cover;
         }
 
-        /* body::after {
+        body::after {
             content: '';
-            width: 400px;
-            height: 1000px;
-            background-color: red;
-            opacity: 0.4;
-            border: 2px solid blue;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.7;
             display: inline-block;
-        } */
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
     </style>
 
     
@@ -40,30 +42,30 @@
         </div>
 
         <div class="work-button-container">
-            <button class="work-button-next"><i class="fa-solid fa-caret-left"></i></button>
-            <button class="work-button-prev"><i class="fa-solid fa-caret-right"></i></button>
+            <button class="work-button-prev"><i class="fa-solid fa-caret-left"></i></button>
+            <button class="work-button-next"><i class="fa-solid fa-caret-right"></i></button>
         </div>
         
 
-        <div class="work-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
+        <div class="work-paragraph" id="paragraph-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
          Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
         Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
          </div>
 
-        <div class="work-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
+        <div class="work-paragraph" id="paragraph-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
         Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
         Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
         </div>
 
-        <div class="work-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
+        <div class="work-paragraph" id="paragraph-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
             Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
             Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
         </div>
 
-        <button class="" name="<%= jobInfo.shift %>" value="<%= jobInfo.salary %>">Finish Shift</button>
+        <button class="finish-work-button" name="<%= jobInfo.shift %>" value="<%= jobInfo.salary %>">Finish Shift</button>
 
     </form>
 
-
+    <script src="../scripts/work.js"></script>
 </body>
 </html>

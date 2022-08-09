@@ -19,14 +19,14 @@
     
 }
 
-#paragraph-1,
+/* #paragraph-1,
 #paragraph-3 {
     transform: translateX(-50px);
 }
 
 #paragraph-2 {
-    transform: translateX(50px);
-}
+    transform: translateX(150px);
+} */
 
 .work-description {
     border: 2px solid black;
