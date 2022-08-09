@@ -27,7 +27,7 @@ body {
 .banking-option-form {
     border: 2px solid black;
     width: 90%;
-    height: 400px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -40,13 +40,25 @@ body {
 .withdrawal-sentence,
 .transfer-sentence {
     font-size: 50px;
-    /* border: 2px solid black; */
     width: 450px;
     height: 85px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+.money-on-hand-sentence {
+    /* border: 2px solid black; */
+    width: 300px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    align-self: flex-start;
+    margin-left: 6%;
 }
 
 .sub-banking-option-container {

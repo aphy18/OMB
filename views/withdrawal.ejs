@@ -15,6 +15,7 @@
 <div class="banking-option-container">
     <form action="/withdrawal" method="POST" class="banking-option-form">
         <p class="withdrawal-sentence"></p>
+        <p class="money-on-hand-sentence" name="<%= getAccount.money_on_hand %>"></p>
         <div class="sub-banking-option-container" id="withdrawal-sub-container">
             <div class="account-selection">
                 <label for="select-deposit">Select Account: </label>
@@ -36,13 +37,24 @@
     let withdrawalSentence = document.querySelector('.withdrawal-sentence');
     let withdrawal = 'Withdrawal Money';
 
+    let moneyOnHandSentence = document.querySelector('.money-on-hand-sentence');
+    let moneyOnHand = `Money on Hand: $${parseInt(moneyOnHandSentence.getAttribute('name'))}`
+
     setTimeout(() => {
         for (let i=0; i < withdrawal.length; i++) {
             setTimeout(() => {
                 withdrawalSentence.innerHTML += withdrawal[i]
-            }, i * 125)
+            }, i * 100)
         }
     }, 1000)
+
+    setTimeout(() => {
+            for (let i=0; i < moneyOnHand.length; i++) {
+                setTimeout(() => {
+                    moneyOnHandSentence.innerHTML += moneyOnHand[i]
+                }, i * 50)
+            }
+    }, 3000)
 </script>
 
     
