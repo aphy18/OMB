@@ -23,8 +23,15 @@
         <% for (let job of getJobs) { %>
             <div class="job">
                 <header class="job-header">
-                    <span><%= job.job_name %>: </span>
-                    <span><%= job.salary %>/hour</span>
+                    <div>
+                        <span><%= job.job_name %>: </span>
+                        <span><%= job.salary %>/hour</span>
+                    </div>
+                    <% if (job.hired) { %>
+                        <span class="job-status-hired">Job Status: Hired</span>
+                    <% } else { %>
+                        <span class="job-status-not-hired">Job Status: Not Hired</span>
+                    <% } %> 
                 </header>
                 <article class="job-body">
                     <p><%= job.job_description %></p>

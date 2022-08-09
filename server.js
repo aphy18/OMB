@@ -270,8 +270,7 @@ app.get('/jobs', async (req, res) => {
                 getJobs[i].apply = ApplyButton[`btn-${i}`]
             }
             
-            // console.log('jobs ->', jobs.rows)
-            console.log('session -->', user)
+            console.log('jobs ->', getJobs)
             res.render("jobs", { getJobs })
         }
     } catch (err) {
@@ -355,6 +354,8 @@ app.get('/work/:job_id', async(req,res) => {
             res.render('flowershop', { jobInfo } )
         } else if (parseInt(job_id) === 2) {
             res.render('burgerfactory', { jobInfo })
+        } else if (parseInt(job_id) === 3) {
+            res.render('counselor', { jobInfo })
         }
 
     } catch (err) {
