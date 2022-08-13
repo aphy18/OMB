@@ -11,7 +11,8 @@ let counter=0;
 
 workButtonNext.addEventListener('click', () => {
     if (counter < 3) {
-        finishWorkButton.setAttribute('disabled','')
+        finishWorkButton.setAttribute('disabled','');
+        finishWorkButton.style.opacity = 0.4;
         counter++;
         console.log('counter -->', counter)
 
@@ -25,7 +26,8 @@ workButtonNext.addEventListener('click', () => {
             }
         }
     } else {
-        finishWorkButton.removeAttribute('disabled')
+        finishWorkButton.removeAttribute('disabled');
+        finishWorkButton.style.opacity = 1;
     }
 })
 
@@ -34,6 +36,7 @@ workButtonNext.addEventListener('click', () => {
 workButtonPrev.addEventListener('click', () => {
     if (counter >= 1) {
         finishWorkButton.setAttribute('disabled','')
+        finishWorkButton.style.opacity = 0.4;
         counter--;
         console.log('counter -->', counter)
         for (let i=0; i < workParagraphArray.length; i++) {
