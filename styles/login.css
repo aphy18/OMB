@@ -148,7 +148,5 @@
 }
 
 .login-button:hover {
-    background-color: var(--form);
-    color: black;
-    border-color: black;
+    background-color: rgb(180, 44, 44);;
 }

@@ -30,6 +30,10 @@
     font-size: 20px;
 }
 
+.job-status-hired,
+.job-status-not-hired {
+    font-size: 25px;
+}
 
 .job-status-hired {
     color: green;
@@ -76,7 +80,6 @@
 .work-button:hover,
 .quit-button:hover {
     background-color: rgb(180, 44, 44);
-    
 }
 
 #disabled-button {

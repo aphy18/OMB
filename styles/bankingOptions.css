@@ -11,7 +11,7 @@ body {
     /* border: 2px solid black; */
     margin: 0;
     height: 100vh;
-    /* background-color: var(--form); */
+    background-color: var(--form);
     overflow: hidden;
 }
 
@@ -27,12 +27,13 @@ body {
 .banking-option-form {
     border: 2px solid black;
     width: 90%;
-    height: 450px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     background-color: var(--text-color);
+    border-radius: 8px;
     
 }
 
@@ -50,15 +51,15 @@ body {
 
 .money-on-hand-sentence {
     /* border: 2px solid black; */
-    width: 300px;
+    width: 600px;
     height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color: white;
-    font-size: 30px;
+    font-size: 45px;
     align-self: flex-start;
-    margin-left: 6%;
+    margin-left: 6.75%;
 }
 
 .sub-banking-option-container {
@@ -100,6 +101,7 @@ body {
     align-items: center;
     font-size: 28px;
     background-color: var(--form);
+    border-radius: 8px;
 }
 
 #withdrawal-amount-selection {
@@ -131,8 +133,5 @@ body {
 }
 
 .banking-option-button:hover {
-    background-color: var(--form);
-    color: black;
-    border-color: black;
-    /* border-color: var(--form); */
+    background-color: rgb(180, 44, 44);;
 }
