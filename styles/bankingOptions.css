@@ -44,9 +44,11 @@ body {
     width: 450px;
     height: 85px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color: white;
+    /* border: 2px solid black; */
+    padding-left: 3%;
 }
 
 .money-on-hand-sentence {

@@ -5,6 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 2.5%;
 }
 
 .job {
@@ -12,6 +13,7 @@
     width: 31%;
     height: 350px;
     margin-top: 10px;
+    border-radius: 8px;
 }
 
 .job-header {
@@ -23,6 +25,7 @@
     background-color: rgba(206, 77, 77, 1);
     color: white;
     border-bottom: 2px solid black;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .job-status-hired,
@@ -60,6 +63,7 @@
     justify-content: flex-end;
     align-items: center;
     background-color: rgba(206, 77, 77, 1);
+    border-radius: 0px 0px 5px 5px;
 }
 
 .apply-button,
