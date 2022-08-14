@@ -13,6 +13,8 @@ workButtonNext.addEventListener('click', () => {
     if (counter < 3) {
         finishWorkButton.setAttribute('disabled','');
         finishWorkButton.style.opacity = 0.4;
+        workButtonNext.style.opacity = 1;
+        workButtonPrev.style.opacity = 1;
         counter++;
         console.log('counter -->', counter)
 
@@ -25,18 +27,27 @@ workButtonNext.addEventListener('click', () => {
                 // }
             }
         }
-    } else {
+    }
+
+    if (counter === 3) {
         finishWorkButton.removeAttribute('disabled');
         finishWorkButton.style.opacity = 1;
+        workButtonNext.style.opacity = 0.4;
     }
+
 })
 
 
 
 workButtonPrev.addEventListener('click', () => {
+    if (counter === 1) {
+        workButtonPrev.style.opacity = 0.4;
+    }
+
     if (counter >= 1) {
         finishWorkButton.setAttribute('disabled','')
         finishWorkButton.style.opacity = 0.4;
+        workButtonNext.style.opacity = 1;
         counter--;
         console.log('counter -->', counter)
         for (let i=0; i < workParagraphArray.length; i++) {

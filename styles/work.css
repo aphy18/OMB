@@ -72,6 +72,10 @@ body::after {
     border-radius: 30px;
 }
 
+.work-button-prev {
+    opacity: 0.4;
+}
+
 .finish-work-button {
     width: 200px;
     height: 60px;
