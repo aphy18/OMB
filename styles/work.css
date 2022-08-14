@@ -85,4 +85,6 @@ body::after {
     opacity: 0.4;
     border: none;
     border-radius: 30px;
+    transition: background-color 0.3s ease;
 }
+

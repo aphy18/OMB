@@ -11,11 +11,11 @@ let counter=0;
 
 workButtonNext.addEventListener('click', () => {
     if (counter < 3) {
+        counter++;
         finishWorkButton.setAttribute('disabled','');
         finishWorkButton.style.opacity = 0.4;
         workButtonNext.style.opacity = 1;
         workButtonPrev.style.opacity = 1;
-        counter++;
         console.log('counter -->', counter)
 
 
@@ -32,6 +32,12 @@ workButtonNext.addEventListener('click', () => {
     if (counter === 3) {
         finishWorkButton.removeAttribute('disabled');
         finishWorkButton.style.opacity = 1;
+        finishWorkButton.addEventListener('mouseover', () => {
+            finishWorkButton.style.backgroundColor = 'rgb(180, 44, 44)'
+        })
+        finishWorkButton.addEventListener('mouseout', () => {
+            finishWorkButton.style.backgroundColor = 'rgb(206,77,77)'
+        })
         workButtonNext.style.opacity = 0.4;
     }
 
@@ -45,10 +51,10 @@ workButtonPrev.addEventListener('click', () => {
     }
 
     if (counter >= 1) {
+        counter--;
         finishWorkButton.setAttribute('disabled','')
         finishWorkButton.style.opacity = 0.4;
         workButtonNext.style.opacity = 1;
-        counter--;
         console.log('counter -->', counter)
         for (let i=0; i < workParagraphArray.length; i++) {
             if (counter < i + 1) {
