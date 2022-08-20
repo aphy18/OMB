@@ -4,6 +4,8 @@ const port = 8080;
 const pool = require('./db/db'); // to connect db to server
 const bodyParser = require('body-parser'); // to send request body to server
 const cookieSession = require('cookie-session'); // to save current logged in user
+app.set('view engine', 'ejs');
+
 
 
 // app.use is middleware, runs inbetween the request and response operations
@@ -20,96 +22,21 @@ app.use(cookieSession({
 
 // this means using the /styles route in reference from the root directory, then specifying the folder name
 app.use('/styles', express.static('styles'));
-app.use('/images', express.static('images'))
-app.use('/scripts', express.static('scripts'))
-
-app.set('view engine', 'ejs');
-
-// res.json() sends a json response to the front end
-
-app.get('/', async (req,res) => {
-    try {
-        let user = req.session.user;
-        
-        if (!user) {
-            res.redirect('/login')
-        } else {
-            res.render('home', { user })
-            console.log('current user --->', user)
-        }
-        
-    } catch (err) {
-        console.log(err.message)
-    }
-})
+app.use('/images', express.static('images'));
+app.use('/scripts', express.static('scripts'));
 
 
-app.get('/login', async (req,res) => {
-    try {
-       
-        res.render('login')
-    } catch (err) {
-        console.log(err.message)
-    }
-})
+// require routes
+const homeRoute = require('./routes/home');
+const loginRoute = require('./routes/login');
+const expensesRoute = require('./routes/expenses');
 
-app.post('/login', async (req,res) => {
-    try {
-        const { card, password } = req.body;
-        const checkLogin = await pool.query('SELECT * FROM person JOIN account ON person.id = account.user_id')
-        
-        console.log('check login rows -->', checkLogin.rows)
-        for (let person of checkLogin.rows) {
-            if (person.card_number === parseInt(card) && person.user_password === password) {
-                req.session.user = person;
-                res.redirect('/')
-            } else {
-                console.log('incorrect username or password')
-            }
-        }
+// use the routes in server js
+app.use('/', homeRoute);
+app.use('/login', loginRoute);
+app.use('/expenses', expensesRoute)
 
-        
 
-    } catch (err) {
-        console.log(err.message)
-    }
-})
-
-app.get('/expenses', async (req,res) => {
-    try {
-        let getExpenses = await pool.query('SELECT * FROM expenses')
-        console.log('get Expenses -->', getExpenses.rows)
-        let expenses = getExpenses.rows
-        req.session.allExpenses = expenses;
-        console.log('req session expesnes -->', req.session.allExpenses)
-        res.render('expenses', { expenses })
-    } catch (err) {
-        console.log(err.message)
-    }
-})
-
-app.post('/expenses', async(req,res) => {
-    try {
-        let allExpenses = req.session.allExpenses;
-        let user = req.session.user;
-        for (let key in req.body) {
-            req.body['name'] = key
-        }
-
-        for (let expense of allExpenses) {
-            if (expense.expense_name === req.body.name) {
-                console.log('the expense -->', expense)
-                user.savings = user.savings - parseInt(expense.price)
-                await pool.query('UPDATE account SET savings = $1 WHERE id = $2', [user.savings, user.id])
-            }
-        }
-
-        res.redirect('/')
-
-    } catch (err) {
-        console.log(err.message)
-    }
-})
 
 app.get('/transfer', (req,res) => {
     
@@ -407,3 +334,4 @@ app.get('/deadend', async (req,res) => {
 
 app.listen(port, () => { 
 console.log(`Listening on port ${port}`)})
+
