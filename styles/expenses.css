@@ -1,5 +1,5 @@
 .expenses-body-container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 100%;
     height: 1200px;
     display: flex;
@@ -8,15 +8,18 @@
 }
 
 .expenses-container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 600px;
     height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 0px 15px 0px 15px;
-    
+    margin: 15px;
+    /* background-color: rgb(206, 77, 77); */
+    /* color: white; */
+    border-radius: 10px;
+    background-color: rgb(252, 196, 196);
 }
 
 .expense-image {

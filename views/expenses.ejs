@@ -22,9 +22,9 @@
     <div class="expenses-body-container">
         <% for (let expense of expenses) { %>
             <form action="/expenses" method="POST" class="expenses-container">
-                <h1><%= expense.expense_name %></h1>
+                <h1><%= expense.expense_name %> ($<%= expense.price %>)</h1>
                 <img src="../images/<%= expense.image_src %>" class="expense-image">
-                <button class="expense-button" name="<%= expense.expense_name %>">$ <%= expense.price %></button>
+                <button class="expense-button" name="<%= expense.expense_name %>">Pay</button>
             </form>
         <% } %>
     </div>
