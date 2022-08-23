@@ -11,7 +11,7 @@
 
 .job-question-container {
     /* border: 2px solid red; */
-    width: 40%;
+    width: 600px;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -35,21 +35,21 @@
 #question-1,
 #question-2,
 #question-3 {
-    width: 70%;
+    width: 80%;
     height: 50px;
     font-size: 20px;
     background-color: rgb(252, 196, 196);
 }
 
-.good-answer {
+#good-answer {
     color: green;
 }
 
-.standard-answer {
+#standard-answer {
     color: black;
 }
 
-.bad-answer {
+#bad-answer {
     color: red;
 }
 

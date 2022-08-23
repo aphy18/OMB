@@ -21,29 +21,29 @@
         <h1><%= jobInfo.job_name %> Application</h1>
         <div class="job-question-container">
             <label for="question-1">1. <%= jobInfo.question_1 %></label>
-            <select name="questionOne" id="question-1">
-                <option value="good-answer" class="good-answer">I have a lot of experience</option>
-                <option value="standard-answer" class="standard-answer">I have some experience</option>
-                <option value="bad-answer" class="bad-answer">I have no experience</option>
+            <select name="questionOne" id="question-1" class="question">
+                <option value="good-answer" class="question-response" id="good-answer-1">I have a lot of experience</option>
+                <option value="standard-answer" class="question-response" id="standard-answer-1">I have some experience</option>
+                <option value="bad-answer" class="question-response" id="bad-answer-1">I have no experience</option>
             </select>
         </div>
         
 
         <div class="job-question-container">
             <label for="question-2">2. <%= jobInfo.question_2 %></label>
-            <select name="questionTwo" id="question-2">
-                <option value="good-answer" class="good-answer">I am available anytime</option>
-                <option value="standard-answer" class="standard-answer">I am available sometimes</option>
-                <option value="bad-answer" class="bad-answer">I am rarely available</option>
+            <select name="questionTwo" id="question-2" class="question">
+                <option value="good-answer" class="question-response" id="good-answer-2">I am available anytime</option>
+                <option value="standard-answer" class="question-response" id="standard-answer-2">I am available sometimes</option>
+                <option value="bad-answer" class="question-response" id="bad-answer-2">I am rarely available</option>
             </select>
         </div>
 
         <div class="job-question-container">
             <label for="question-3">3. <%= jobInfo.question_3 %></label>
-            <select name="questionThree" id="question-3">
-                <option value="good-answer" class="good-answer">I am fully dedicated to learning a new work system</option>
-                <option value="standard-answer" class="standard-answer">I am somewhat prepared to learn a new work system</option>
-                <option value="bad-answer" class="bad-answer">I am reluctant to learn a new work system</option>
+            <select name="questionThree" id="question-3" class="question">
+                <option value="good-answer" class="question-response" id="good-answer-3">I am fully dedicated to learning a new work system</option>
+                <option value="standard-answer" class="question-response" id="standard-answer-3">I am somewhat prepared to learn a new work system</option>
+                <option value="bad-answer" class="question-response" id="bad-answer-3">I am reluctant to learn a new work system</option>
             </select>
         </div>
 
@@ -52,12 +52,36 @@
         <button class="apply-button">Submit Application</button>
     </form>
 
-<!-- 
+
     <script>
-        let job = document.querySelector('.job-application')
-        job.addEventListener('submit', () => {
-            alert('derp')
-        })
-    </script> -->
+
+       let question = document.querySelectorAll('.question');
+       let questionArray = Array.from(question);
+
+       let questionOneOptions = [];
+       let questionTwoOptions = [];
+       let questionThreeOptions = [];
+       let options = document.getElementsByTagName('option');
+       let optionsArr = Array.from(options);
+
+
+       for (let i = 0; i < optionsArr.length; i++) {
+            if (i >= 0 && i < 3) {
+                questionOneOptions.push(optionsArr[i])
+            } else if (i >= 3 && i < 6) {
+                questionTwoOptions.push(optionsArr[i])
+            } else if (i >= 6 && i < 9) {
+                questionThreeOptions.push(optionsArr[i])
+            }
+       }
+
+       let questionOneInnerText = questionArray[0].innerText.split('\n');
+       let questionTwoInnerText = questionArray[1].innerText.split('\n');
+       let questionThreeInnerText = questionArray[2].innerText.split('\n');
+
+       console.log(questionThreeInnerText[0])
+
+        
+    </script>
 </body>
 </html>
