@@ -15,40 +15,59 @@
         }
     </style>
 
-    
+
+
 
     <form class="work-form" action="/work/:job_id" method="POST">
-
+    
         <div class="work-description">
             <p><%= jobInfo.salary %> / hour</p>
             <p><%= jobInfo.shift %> hour shift</p>
         </div>
-
+        
         <div class="work-button-container">
             <button class="work-button-prev"><i class="fa-solid fa-caret-left"></i></button>
             <button class="work-button-next"><i class="fa-solid fa-caret-right"></i></button>
         </div>
         
-
+        
         <div class="work-paragraph" id="paragraph-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
-         Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
-        Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
-         </div>
-
-        <div class="work-paragraph" id="paragraph-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
-        Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
-        Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
+            Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
+            Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
         </div>
-
+        
+        <div class="work-paragraph" id="paragraph-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
+            Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
+            Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
+        </div>
+        
+        <div class="finish-work-prompt">
+            <p>Work Completed</p>
+        </div>
         <div class="work-paragraph" id="paragraph-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
             Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
             Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
         </div>
 
         <button class="finish-work-button" name="<%= jobInfo.shift %>" value="<%= jobInfo.salary %>" disabled>Finish Shift</button>
+        <button class="click-me">Click me</button>
 
     </form>
 
     <script src="../scripts/work.js"></script>
+
+
+
+    <script>
+        let clickMe = document.querySelector('.click-me');
+        let prompt = document.querySelector('.finish-work-prompt');
+        
+        clickMe.addEventListener('click', () => {
+            prompt.style.transform = 'rotate(0.12deg)';
+            prompt.style.zIndex = 1;
+            prompt.style.visibility = 'visible';
+        })
+
+    </script>
 </body>
 </html>

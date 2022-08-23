@@ -88,3 +88,15 @@ body::after {
     transition: background-color 0.3s ease;
 }
 
+
+.finish-work-prompt {
+    width: 600px;
+    height: 400px;
+    border: 2px solid red;
+    transform-origin: top right;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease, visibility 0.1s ease;
+    position: absolute;
+    z-index: -1;
+    visibility: hidden;
+}
