@@ -53,35 +53,5 @@
     </form>
 
 
-    <script>
-
-       let question = document.querySelectorAll('.question');
-       let questionArray = Array.from(question);
-
-       let questionOneOptions = [];
-       let questionTwoOptions = [];
-       let questionThreeOptions = [];
-       let options = document.getElementsByTagName('option');
-       let optionsArr = Array.from(options);
-
-
-       for (let i = 0; i < optionsArr.length; i++) {
-            if (i >= 0 && i < 3) {
-                questionOneOptions.push(optionsArr[i])
-            } else if (i >= 3 && i < 6) {
-                questionTwoOptions.push(optionsArr[i])
-            } else if (i >= 6 && i < 9) {
-                questionThreeOptions.push(optionsArr[i])
-            }
-       }
-
-       let questionOneInnerText = questionArray[0].innerText.split('\n');
-       let questionTwoInnerText = questionArray[1].innerText.split('\n');
-       let questionThreeInnerText = questionArray[2].innerText.split('\n');
-
-       console.log(questionThreeInnerText[0])
-
-        
-    </script>
 </body>
 </html>
