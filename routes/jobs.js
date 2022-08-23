@@ -7,10 +7,10 @@ router.get('/', async (req, res) => {
     try {
         let user = req.session.user;
         if (!user) {
-            res.redirect('/login')
+            res.redirect('/login');
         } else {
-            let jobs = await pool.query('SELECT job_application.*, job.*, person.id, person.job_count FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job_application.user_id = $1', [user.id])
-            let getJobs = jobs.rows
+            let jobs = await pool.query('SELECT job_application.*, job.*, person.id, person.job_count FROM job_application INNER JOIN job ON job_application.job_id = job.id INNER JOIN person ON job_application.user_id = person.id WHERE job_application.user_id = $1', [user.id]);
+            let getJobs = jobs.rows;
             let ApplyButton = {};
 
             
@@ -22,8 +22,6 @@ router.get('/', async (req, res) => {
                 }
                 getJobs[i].apply = ApplyButton[`btn-${i}`]
             }
-            
-            console.log('jobs ->', getJobs)
             res.render("jobs", { getJobs })
         }
     } catch (err) {
@@ -39,15 +37,15 @@ router.post('/', async(req,res) => {
 
         for (let key in reqBody) {
             arr.push(key);
-            arr.push(reqBody[key])
+            arr.push(reqBody[key]);
         }
 
         let jobID = arr[0];
 
         user.job_count--;
-        await pool.query('UPDATE job_application SET hired = $1 WHERE job_id = $2 AND user_id = $3', [false, jobID, user.id])
-        await pool.query('UPDATE person SET job_count = $1 WHERE person.id = $2', [user.job_count, user.id])
-        res.redirect('/jobs')
+        await pool.query('UPDATE job_application SET hired = $1 WHERE job_id = $2 AND user_id = $3', [false, jobID, user.id]);
+        await pool.query('UPDATE person SET job_count = $1 WHERE person.id = $2', [user.job_count, user.id]);
+        res.redirect('/jobs');
 
     } catch (err) {
         console.log(err.message)

@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const pool = require('./db/db'); // to connect db to server
 const bodyParser = require('body-parser'); // to send request body to server
 const cookieSession = require('cookie-session'); // to save current logged in user
 app.set('view engine', 'ejs');

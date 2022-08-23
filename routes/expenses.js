@@ -4,11 +4,9 @@ const pool = require('../db/db');
 
 router.get('/', async (req,res) => {
     try {
-        let getExpenses = await pool.query('SELECT * FROM expenses')
-        console.log('get Expenses -->', getExpenses.rows)
-        let expenses = getExpenses.rows
+        let getExpenses = await pool.query('SELECT * FROM expenses');
+        let expenses = getExpenses.rows;
         req.session.allExpenses = expenses;
-        console.log('req session expesnes -->', req.session.allExpenses)
         res.render('expenses', { expenses })
     } catch (err) {
         console.log(err.message)

@@ -4,9 +4,8 @@ const pool = require('../db/db');
 
 router.get('/', async (req,res) => {
     let user = req.session.user;
-    let account = await pool.query('SELECT chequing, savings, money_on_hand FROM account WHERE user_id = $1', [user.id])
+    let account = await pool.query('SELECT chequing, savings, money_on_hand FROM account WHERE user_id = $1', [user.id]);
     let getAccount = account.rows[0];
-    console.log(getAccount)
     if (!user) {
         res.redirect('/login')
     } else {
@@ -19,8 +18,6 @@ router.post('/', async (req,res) => {
     let user = req.session.user;
     let { money_on_hand, chequing, savings } = user;
     let { account, amount } = req.body;
-
-    console.log('testing -->', money_on_hand, chequing)
 
     if (!isNaN(amount)) {
         if (money_on_hand >= amount) {

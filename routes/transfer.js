@@ -9,7 +9,6 @@ router.get('/', (req,res) => {
         if (!user) {
             res.redirect('/login')
         } else {
-            console.log('user -->', user)
             res.render('transfer', { user })
         }
     
@@ -23,9 +22,6 @@ router.post('/', async(req,res) => {
     const user = req.session.user;
     let { chequing, savings } = user;
 
-
-    console.log('req body -->', req.body)
-
     if (!isNaN(amount)) {
         if (from !== to) {
             if (from === 'chequing') {
@@ -34,8 +30,8 @@ router.post('/', async(req,res) => {
                 } else {
                     user.chequing = chequing = chequing - parseInt(amount);
                     user.savings = savings = savings + parseInt(amount);
-                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [user.chequing, user.savings, user.id])
-                    res.redirect('/')
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [user.chequing, user.savings, user.id]);
+                    res.redirect('/');
                 }
         
             } else if (from === 'savings') {
@@ -44,15 +40,15 @@ router.post('/', async(req,res) => {
                 } else {
                     user.savings = savings - parseInt(amount);
                     user.chequing = chequing = chequing + parseInt(amount);
-                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [user.chequing, user.savings, user.id])
-                    res.redirect('/')
+                    await pool.query('UPDATE account SET chequing = $1, savings = $2 WHERE user_id = $3', [user.chequing, user.savings, user.id]);
+                    res.redirect('/');
                 }
             }
         } else {
-            res.status(400).send('must transfer to a different account')
+            res.status(400).send('must transfer to a different account');
         }
     } else {
-        res.status(400).send('enter a valid amount')
+        res.status(400).send('enter a valid amount');
     }
 })
 
