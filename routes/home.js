@@ -6,14 +6,14 @@ router.get('/', async (req,res) => {
         let user = req.session.user;
 
         if (!user) {
-            res.redirect('/login')
+            res.redirect('/login');
         } else {
-            res.render('home', { user })
-            console.log('current user --->', user)
+            res.render('home', { user });
+            console.log('current user --->', user);
         }
         
     } catch (err) {
-        console.log(err.message)
+        console.log(err.message);
     }
 })
 

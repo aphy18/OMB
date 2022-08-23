@@ -7,9 +7,9 @@ router.get('/', async (req,res) => {
         let getExpenses = await pool.query('SELECT * FROM expenses');
         let expenses = getExpenses.rows;
         req.session.allExpenses = expenses;
-        res.render('expenses', { expenses })
+        res.render('expenses', { expenses });
     } catch (err) {
-        console.log(err.message)
+        console.log(err.message);
     }
 })
 
@@ -23,9 +23,8 @@ router.post('/', async(req,res) => {
 
         for (let expense of allExpenses) {
             if (expense.expense_name === req.body.name) {
-                console.log('the expense -->', expense)
-                user.savings = user.savings - parseInt(expense.price)
-                await pool.query('UPDATE account SET savings = $1 WHERE id = $2', [user.savings, user.id])
+                user.savings = user.savings - parseInt(expense.price);
+                await pool.query('UPDATE account SET savings = $1 WHERE id = $2', [user.savings, user.id]);
             }
         }
 

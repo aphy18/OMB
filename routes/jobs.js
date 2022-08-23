@@ -20,12 +20,12 @@ router.get('/', async (req, res) => {
                 } else {
                     ApplyButton[`btn-${i}`] = true;
                 }
-                getJobs[i].apply = ApplyButton[`btn-${i}`]
+                getJobs[i].apply = ApplyButton[`btn-${i}`];
             }
-            res.render("jobs", { getJobs })
+            res.render("jobs", { getJobs });
         }
     } catch (err) {
-        console.log(err.message)
+        console.log(err.message);
     }
 })
 
@@ -48,7 +48,7 @@ router.post('/', async(req,res) => {
         res.redirect('/jobs');
 
     } catch (err) {
-        console.log(err.message)
+        console.log(err.message);
     }
 })
 

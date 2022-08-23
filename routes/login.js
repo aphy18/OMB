@@ -14,20 +14,20 @@ router.get('/', async (req,res) => {
 router.post('/', async (req,res) => {
     try {
         const { card, password } = req.body;
-        const checkLogin = await pool.query('SELECT * FROM person JOIN account ON person.id = account.user_id')
+        const checkLogin = await pool.query('SELECT * FROM person JOIN account ON person.id = account.user_id');
         
         console.log('check login rows -->', checkLogin.rows)
         for (let person of checkLogin.rows) {
             if (person.card_number === parseInt(card) && person.user_password === password) {
                 req.session.user = person;
-                res.redirect('/')
+                res.redirect('/');
             } else {
-                console.log('incorrect username or password')
+                res.status(400).send('Incorrect card number or password.');
             }
         }
 
     } catch (err) {
-        console.log(err.message)
+        console.log(err.message);
     }
 })
 

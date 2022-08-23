@@ -26,7 +26,7 @@ router.post('/', async(req,res) => {
         if (from !== to) {
             if (from === 'chequing') {
                 if (chequing < amount) {
-                    res.status(400).send('not enough to transfer')
+                    res.status(400).send('Not enough to transfer.');
                 } else {
                     user.chequing = chequing = chequing - parseInt(amount);
                     user.savings = savings = savings + parseInt(amount);
@@ -36,7 +36,7 @@ router.post('/', async(req,res) => {
         
             } else if (from === 'savings') {
                 if (savings < amount) {
-                    res.status(400).send('not enough to transfer')
+                    res.status(400).send('Not enough to transfer.');
                 } else {
                     user.savings = savings - parseInt(amount);
                     user.chequing = chequing = chequing + parseInt(amount);
