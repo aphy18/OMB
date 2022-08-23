@@ -21,8 +21,6 @@ router.post('/', async (req,res) => {
             if (person.card_number === parseInt(card) && person.user_password === password) {
                 req.session.user = person;
                 res.redirect('/');
-            } else {
-                res.status(400).send('Incorrect card number or password.');
             }
         }
 
