@@ -18,11 +18,12 @@ router.get('/work/:job_id', async(req,res) => {
     } catch (err) {
         console.log(err.message)
     }
-
 })
 
+
+
 router.post('/work/:job_id', async(req,res) => {
-    try {  
+    try {
         let user = req.session.user;
         let reqBody = req.body;
         let compensation;

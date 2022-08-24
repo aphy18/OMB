@@ -5,6 +5,10 @@ let workButtonNext = document.querySelector('.work-button-next');
 let workButtonPrev = document.querySelector('.work-button-prev');
 let finishWorkButton = document.querySelector('.finish-work-button');
 
+let nextButton = document.querySelector('.next-button');
+let prompt = document.querySelector('.finish-work-prompt');
+let workForm = document.querySelector('.work-form');
+
 let counter=0;
 
 
@@ -14,6 +18,7 @@ workButtonNext.addEventListener('click', () => {
         counter++;
         finishWorkButton.setAttribute('disabled','');
         finishWorkButton.style.opacity = 0.4;
+        nextButton.setAttribute('disabled', '');
         workButtonNext.style.opacity = 1;
         workButtonPrev.style.opacity = 1;
         console.log('counter -->', counter)
@@ -32,6 +37,10 @@ workButtonNext.addEventListener('click', () => {
     if (counter === 3) {
         finishWorkButton.removeAttribute('disabled');
         finishWorkButton.style.opacity = 1;
+
+        nextButton.removeAttribute('disabled');
+        nextButton.style.opacity = 1;
+
         finishWorkButton.addEventListener('mouseover', () => {
             finishWorkButton.style.backgroundColor = 'rgb(180, 44, 44)'
         })
@@ -54,6 +63,8 @@ workButtonPrev.addEventListener('click', () => {
         counter--;
         finishWorkButton.setAttribute('disabled','')
         finishWorkButton.style.opacity = 0.4;
+        nextButton.setAttribute('disabled','');
+        nextButton.style.opacity = 0.4;
         workButtonNext.style.opacity = 1;
         console.log('counter -->', counter)
         for (let i=0; i < workParagraphArray.length; i++) {
@@ -67,4 +78,14 @@ workButtonPrev.addEventListener('click', () => {
             }
         }
     }
+})
+
+nextButton.addEventListener('click', () => {
+    prompt.style.zIndex = 1;
+    prompt.style.visibility = 'visible';
+    prompt.style.transform = 'rotate(-0.12deg)';
+    document.body.style.backgroundColor = 'black';
+    workButtonNext.setAttribute('disabled', '');
+    workButtonPrev.setAttribute('disabled', '');
+    workButtonPrev.style.opacity = 0.4;
 })
