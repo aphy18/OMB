@@ -29,6 +29,12 @@
             <button class="work-button-next" type="button"><i class="fa-solid fa-caret-right"></i></button>
         </div>
 
+        <div class="finish-work-prompt">
+            <div class="x-symbol-container"><i class="fa-solid fa-circle-xmark" id="x-symbol"></i></div>
+            <p>Work Completed</p>
+            <button class="finish-work-button" name="<%= jobInfo.shift %>" value="<%= jobInfo.salary %>">Back to Jobs</button>
+        </div>
+        
         <div class="work-paragraph" id="paragraph-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
          Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
         Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
@@ -39,18 +45,16 @@
         Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
         </div>
 
-        <div class="finish-work-prompt">
-            <p>Work Completed</p>
-            <button class="finish-work-button" name="<%= jobInfo.shift %>" value="<%= jobInfo.salary %>" disabled>Back to Jobs</button>
-        </div>
 
         <div class="work-paragraph" id="paragraph-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis soluta iusto nesciunt provident voluptate. Aut quia, distinctio, nisi magni necessitatibus velit corrupti ducimus laudantium, fugit obcaecati in omnis. Saepe, odio?
             Provident magnam, dolor porro molestias, perspiciatis vero quisquam eius quia iure vel similique possimus laudantium debitis corporis magni aliquam alias. Molestias vero magnam alias, distinctio iusto voluptate. Quia, aliquid voluptates!
             Numquam velit culpa, ratione beatae consectetur dignissimos ab sapiente amet. Neque laborum, nobis sapiente ut repellendus, ipsum quibusdam modi, saepe pariatur repellat commodi perspiciatis quod in eius? Sint, totam harum.
         </div>
 
+        <button type="button" class="next-button" disabled>Finish Shift</button>
+
     </form>
 
-    <!-- <script src="../scripts/work.js"></script> -->
+    <script src="../scripts/work.js"></script>
 </body>
 </html>
