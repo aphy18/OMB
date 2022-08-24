@@ -7,7 +7,7 @@ let workButtonPrev = document.querySelector('.work-button-prev');
 
 let nextButton = document.querySelector('.next-button');
 let prompt = document.querySelector('.finish-work-prompt');
-let workForm = document.querySelector('.work-form');
+let xSymbol = document.querySelector('#x-symbol');
 
 let counter=0;
 
@@ -78,11 +78,36 @@ workButtonPrev.addEventListener('click', () => {
 })
 
 nextButton.addEventListener('click', () => {
-    prompt.style.zIndex = 1;
-    prompt.style.visibility = 'visible';
-    prompt.style.transform = 'rotate(-0.12deg)';
     document.body.style.backgroundColor = 'black';
+
+    prompt.style.zIndex = 1;
+    prompt.style.opacity = 1;
+    prompt.style.transform = 'rotate(-0.12deg)';
+
     workButtonNext.setAttribute('disabled', '');
     workButtonPrev.setAttribute('disabled', '');
     workButtonPrev.style.opacity = 0.4;
+
+    for (let paragraph of workParagraphArray) {
+        paragraph.style.opacity = 0;
+    }
+    nextButton.style.opacity = 0;
+})
+
+xSymbol.addEventListener('click', () => {
+    document.body.style.backgroundColor = 'white';
+
+    prompt.style.zIndex = -1;
+    prompt.style.opacity = 0;
+    prompt.style.transform = 'rotate(90deg)';
+
+    workButtonNext.removeAttribute('disabled');
+    workButtonPrev.removeAttribute('disabled');
+    workButtonPrev.style.opacity = 1;
+
+    for (let paragraph of workParagraphArray) {
+        paragraph.style.opacity = 1;
+    }
+    nextButton.style.opacity = 1;
+
 })

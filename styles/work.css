@@ -5,7 +5,7 @@ body {
     width: 100%;
     background-size: cover;
     background-color: white;
-    transition: background-color 0.3s ease;
+    transition: background-color 1s ease;
 }
 
 body::after {
@@ -38,7 +38,7 @@ body::after {
     background-color: white;
     font-size: 23px;
     opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.4s ease;
     background-color: rgb(252, 196, 196);
     padding: 0px 20px;
     
@@ -97,18 +97,26 @@ body::after {
 
 .finish-work-prompt {
     width: 600px;
-    height: 400px;
+    height: 300px;
     border: 2px solid red;
     transform-origin: top right;
     transform: rotate(90deg);
-    transition: transform 0.3s ease, visibility 0.1s ease;
+    transition: transform 0.3s ease-in, opacity 0.2s ease;
     position: absolute;
     z-index: -1;
-    visibility: hidden;
+    opacity: 0;
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     font-size: 30px;
+}
+
+.x-symbol-container {
+    width: 90%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
