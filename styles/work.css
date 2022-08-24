@@ -44,14 +44,15 @@ body::after {
     
 }
 
-/* #paragraph-1,
+#paragraph-1,
 #paragraph-3 {
     transform: translateX(-50px);
 }
 
 #paragraph-2 {
-    transform: translateX(150px);
-} */
+    transform: translateX(200px);
+    margin-left: 10.75%;
+}
 
 .work-description {
     border: 2px solid black;

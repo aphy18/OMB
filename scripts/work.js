@@ -26,9 +26,12 @@ workButtonNext.addEventListener('click', () => {
         for (let i=0; i < workParagraphArray.length; i++) {
             if (counter >= i + 1) {
                 workParagraphArray[i].style.opacity = 1;
-                // if (workParagraphArray[i].getAttribute('id') === 'paragraph-1' || workParagraphArray[i].getAttribute('id') === 'paragraph-3') {
-                //     workParagraphArray[i].style.transform = 'translateX(50px)'
-                // }
+                if (workParagraphArray[i].getAttribute('id') === 'paragraph-1' || workParagraphArray[i].getAttribute('id') === 'paragraph-3') {
+                    workParagraphArray[i].style.transform = 'translateX(50px)'
+                } else if (workParagraphArray[i].getAttribute('id') === 'paragraph-2') {
+                    workParagraphArray[i].style.transform = 'translateX(-50px)'
+                }
+
             }
         }
     }
@@ -67,11 +70,11 @@ workButtonPrev.addEventListener('click', () => {
         for (let i=0; i < workParagraphArray.length; i++) {
             if (counter < i + 1) {
                 workParagraphArray[i].style.opacity = 0;
-                // if (workParagraphArray[i].getAttribute('id') === 'paragraph-1' || workParagraphArray[i].getAttribute('id') === 'paragraph-3') {
-                //     workParagraphArray[i].style.transform = 'translateX(-50px)'
-                // } else {
-                //     workParagraphArray[i].style.transform = 'translateX(5px)'
-                // }
+                if (workParagraphArray[i].getAttribute('id') === 'paragraph-1' || workParagraphArray[i].getAttribute('id') === 'paragraph-3') {
+                    workParagraphArray[i].style.transform = 'translateX(-50px)'
+                } else {
+                    workParagraphArray[i].style.transform = 'translateX(50px)'
+                }
             }
         }
     }
