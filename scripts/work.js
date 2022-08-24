@@ -3,7 +3,7 @@ let workParagraphArray = Array.from(workParagraph);
 
 let workButtonNext = document.querySelector('.work-button-next');
 let workButtonPrev = document.querySelector('.work-button-prev');
-let finishWorkButton = document.querySelector('.finish-work-button');
+
 
 let nextButton = document.querySelector('.next-button');
 let prompt = document.querySelector('.finish-work-prompt');
@@ -16,9 +16,8 @@ let counter=0;
 workButtonNext.addEventListener('click', () => {
     if (counter < 3) {
         counter++;
-        finishWorkButton.setAttribute('disabled','');
-        finishWorkButton.style.opacity = 0.4;
         nextButton.setAttribute('disabled', '');
+        nextButton.style.opacity = 0.4;
         workButtonNext.style.opacity = 1;
         workButtonPrev.style.opacity = 1;
         console.log('counter -->', counter)
@@ -35,17 +34,17 @@ workButtonNext.addEventListener('click', () => {
     }
 
     if (counter === 3) {
-        finishWorkButton.removeAttribute('disabled');
-        finishWorkButton.style.opacity = 1;
+        nextButton.removeAttribute('disabled');
+        nextButton.style.opacity = 1;
 
         nextButton.removeAttribute('disabled');
         nextButton.style.opacity = 1;
 
-        finishWorkButton.addEventListener('mouseover', () => {
-            finishWorkButton.style.backgroundColor = 'rgb(180, 44, 44)'
+        nextButton.addEventListener('mouseover', () => {
+            nextButton.style.backgroundColor = 'rgb(180, 44, 44)'
         })
-        finishWorkButton.addEventListener('mouseout', () => {
-            finishWorkButton.style.backgroundColor = 'rgb(206,77,77)'
+        nextButton.addEventListener('mouseout', () => {
+            nextButton.style.backgroundColor = 'rgb(206,77,77)'
         })
         workButtonNext.style.opacity = 0.4;
     }
@@ -61,9 +60,7 @@ workButtonPrev.addEventListener('click', () => {
 
     if (counter >= 1) {
         counter--;
-        finishWorkButton.setAttribute('disabled','')
-        finishWorkButton.style.opacity = 0.4;
-        nextButton.setAttribute('disabled','');
+        nextButton.setAttribute('disabled','')
         nextButton.style.opacity = 0.4;
         workButtonNext.style.opacity = 1;
         console.log('counter -->', counter)
