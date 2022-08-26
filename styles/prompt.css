@@ -1,0 +1,53 @@
+.finish-work-button,
+.next-button {
+    width: 200px;
+    height: 60px;
+    font-size: 25px;
+    background-color: rgb(206, 77, 77);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.finish-work-button {
+    border: 2px solid white;
+}
+
+.next-button {
+    opacity: 0.4;
+}
+
+.finish-work-button:hover {
+    background-color: rgb(180, 44, 44);
+}
+
+
+.finish-work-prompt {
+    width: 600px;
+    height: 300px;
+    background-color: rgb(206,77,77);
+    color: white;
+    /* border: 2px solid rgb(206, 77, 77); */
+    border: 2px solid black;
+    transform-origin: top right;
+    transform: rotate(90deg);
+    transition: transform 0.2s ease-out, opacity 0.2s ease;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.x-symbol-container {
+    width: 90%;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
