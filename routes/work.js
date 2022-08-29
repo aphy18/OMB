@@ -8,6 +8,7 @@ router.get('/work/:job_id', async(req,res) => {
         let getJobInfo = await pool.query('SELECT salary, shift FROM job WHERE id = $1', [job_id]);
         let jobInfo = getJobInfo.rows[0];
 
+        console.log('job info -->', jobInfo)
         if (parseInt(job_id) === 1) {
             res.render('flowershop', { jobInfo } )
         } else if (parseInt(job_id) === 2) {
