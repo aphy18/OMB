@@ -31,6 +31,10 @@
     margin-left: 8px;
 }
 
+.question {
+    color: green;
+}
+
 
 #question-1,
 #question-2,
@@ -41,15 +45,26 @@
     background-color: rgb(252, 196, 196);
 }
 
-#good-answer {
+.question-response {
+    margin: 0;
+}
+
+
+#good-answer-1,
+#good-answer-2,
+#good-answer-3 {
     color: green;
 }
 
-#standard-answer {
+#standard-answer-1,
+#standard-answer-2,
+#standard-answer-3 {
     color: black;
 }
 
-#bad-answer {
+#bad-answer-1,
+#bad-answer-2,
+#bad-answer-3 {
     color: red;
 }
 
