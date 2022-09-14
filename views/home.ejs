@@ -88,6 +88,7 @@
         }
 
         const loadElements = async () => {
+
             await elements(homeHeader, 'translateY(20px)');
             await elements(moneyOnHand, 'translateX(10px)');
             await elements(bankingContainer, 'translateY(-20px)');
@@ -98,9 +99,6 @@
             loadElements()
             .then(data => console.log(data))
         })
-
-        
-
 
     </script>
     

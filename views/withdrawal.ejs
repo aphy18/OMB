@@ -40,24 +40,26 @@
     let moneyOnHandSentence = document.querySelector('.money-on-hand-sentence');
     let moneyOnHand = `Money on Hand: $${parseInt(moneyOnHandSentence.getAttribute('name'))}`
 
-
-
-    setTimeout(() => {
-        for (let i=0; i < withdrawal.length; i++) {
-            setTimeout(() => {
-                withdrawalSentence.innerHTML += withdrawal[i]
-            }, i * 75)
-        }
-    }, 1000)
-
-    setTimeout(() => {
-            for (let i=0; i < moneyOnHand.length; i++) {
+    const appendLetters = (element, sentence, interval) => {
+        return new Promise((resolve, reject) => {
+            for (let i=0; i < sentence.length; i++) {
                 setTimeout(() => {
-                    moneyOnHandSentence.innerHTML += moneyOnHand[i]
-                }, i * 50)
+                    element.innerHTML += sentence[i];
+                    resolve();
+                }, i * interval)
             }
-    }, 3000)
+        })
+    }
 
+    const displaySentence = async() => {
+        await appendLetters(withdrawalSentence, withdrawal, 75);
+        await setTimeout(() => {
+            appendLetters(moneyOnHandSentence, moneyOnHand, 50);
+        }, 1500)
+    }
+
+    displaySentence();
+    
 </script>
 
 </body>
