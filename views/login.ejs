@@ -55,7 +55,7 @@
 
             let loginTitle = 'Online Money Banker'
             let d1Sentence = 'Keep Cash on Hand';
-            let d2Sentence = 'Deposit | Withdrawal | Transfer';
+            let d2Sentence = 'Deposit/Withdrawal/Transfer';
             let d3Sentence = 'Pay Expenses on Time';
             let d4Sentence = 'Work to Earn';
             let d5Sentence = 'Better State of Mind';
@@ -76,30 +76,24 @@
             }
 
             
-          
-            const displayText = new Promise((res,rej) => {
-
-                setTimeout(() => {
-                    loopOverText(0, d1Sentence)
+            const displayText = (index, sentence) => {
+                return new Promise((resolve, reject) => {
                     setTimeout(() => {
-                        loopOverText(1, d2Sentence)
-                        setTimeout(() => {
-                            loopOverText(2, d3Sentence)
-                            setTimeout(() => {
-                                loopOverText(3, d4Sentence)
-                                setTimeout(() => {
-                                    loopOverText(4, d5Sentence)
-                                }, 900)
-                            }, 1200)
-                        }, 1700)
-                    }, 1200)
-                }, 1200)
-
-            })
+                        loopOverText(index, sentence);
+                        resolve();
+                    }, 1700)
+                })
+            }
         
+            const executeText = async () => {
+                await displayText(0, d1Sentence);
+                await displayText(1, d2Sentence);
+                await displayText(2, d3Sentence);
+                await displayText(3, d4Sentence);
+                await displayText(4, d5Sentence);
+            }
             
-            
-        
+            executeText();
 
         </script>
 </body>
