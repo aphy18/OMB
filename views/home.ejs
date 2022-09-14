@@ -72,21 +72,31 @@
         let homeHeader = document.querySelector('.home-header');
         let moneyOnHand = document.querySelector('.money-on-hand');
         let bankingContainer = document.querySelector('.bank-account-container');
+
+        const elements = (element, translation) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (document.readyState === "complete" || document.readyState === "interactive") {
+                        element.style.transform = translation;
+                        element.style.opacity = 1;
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                }, 600)
+            })
+        }
+
+        const loadElements = async () => {
+            await elements(homeHeader, 'translateY(20px)');
+            await elements(moneyOnHand, 'translateX(10px)');
+            await elements(bankingContainer, 'translateY(-20px)');
+            return 'All elements loaded';
+        }
         
         window.addEventListener('load', () => {
-            homeHeader.style.transform = 'translateY(20px)';
-            homeHeader.style.opacity = 1;
-
-            setTimeout(() => {
-                moneyOnHand.style.transform = 'translateX(10px)';
-                moneyOnHand.style.opacity = 1;
-            }, 600)
-
-            setTimeout(() => {
-                bankingContainer.style.transform = 'translateY(-20px)';
-                bankingContainer.style.opacity = 1;
-            }, 1200)
-
+            loadElements()
+            .then(data => console.log(data))
         })
 
         

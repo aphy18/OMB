@@ -43,9 +43,9 @@ h1 {
 
 .money-on-hand {
     /* border: 2px solid black; */
-    width: 600px;
+    width: 420px;
     height: 300px;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 100;
     display: flex;
     justify-content: center;
@@ -53,7 +53,7 @@ h1 {
     transform: translateX(-90px);
     opacity: 0;
     transition: transform 0.6s ease, opacity 1s ease;
-    /* margin: 8px; */
+    margin: 20px;
 }
 
 
@@ -71,7 +71,7 @@ h1 {
 
 .bank-account-section {
     width: 100%;
-    border-top: 2px solid red;
+    /* border-top: 2px solid red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -109,7 +109,7 @@ h1 {
 
 .account-money {
     border: none;
-    border-left: 2px solid blue;
+    /* border-left: 2px solid blue; */
     height: 100%;
     width: 200px;
     display: flex;
@@ -119,7 +119,7 @@ h1 {
 
 
 .bank-card {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 500px;
     height: 300px;
 }
@@ -138,8 +138,8 @@ h1 {
     }
 
     .money-on-hand {
-        width: 775px;
-        font-size: 45px;
+        width: 90%;
+        font-size: 35px;
         /* border: 2px solid red; */
         margin: 2%;
     }
